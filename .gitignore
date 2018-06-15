@@ -1,0 +1,7 @@
+.idea
+kafka-eagle-web/docker/apps/
+.idea/
+*.iml
+*/target
+*/*.iml
+

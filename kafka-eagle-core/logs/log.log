@@ -1,0 +1,466 @@
+[2018-06-13 20:21:12] TestSaslKafkaOffsetGetter.main - INFO  - Initialize KafkaOffsetGetter clazz.
+ [2018-06-13 20:21:12] SystemConfigUtils.main - INFO  - Successfully loaded default properties.
+ [2018-06-13 20:21:12] ZkEventThread.ZkClient-EventThread-10-127.0.0.1:2181 - INFO  - Starting ZkClient event thread.
+ [2018-06-13 20:21:12] ZooKeeper.main - INFO  - Client environment:zookeeper.version=3.4.8--1, built on 02/06/2016 03:18 GMT
+ [2018-06-13 20:21:12] ZooKeeper.main - INFO  - Client environment:host.name=172.16.16.195
+ [2018-06-13 20:21:12] ZooKeeper.main - INFO  - Client environment:java.version=1.8.0_161
+ [2018-06-13 20:21:12] ZooKeeper.main - INFO  - Client environment:java.vendor=Oracle Corporation
+ [2018-06-13 20:21:12] ZooKeeper.main - INFO  - Client environment:java.home=/Library/Java/JavaVirtualMachines/jdk1.8.0_161.jdk/Contents/Home/jre
+ [2018-06-13 20:21:12] ZooKeeper.main - INFO  - Client environment:java.class.path=/Users/maple/ideaspace/kafka-eagle-git/kafka-eagle-core/target/test-classes:/Users/maple/ideaspace/kafka-eagle-git/kafka-eagle-core/target/classes:/Users/maple/ideaspace/kafka-eagle-git/kafka-eagle-common/target/kafka-eagle-common-1.2.2.jar:/Users/maple/.m2/repository/org/slf4j/slf4j-log4j12/1.7.5/slf4j-log4j12-1.7.5.jar:/Users/maple/.m2/repository/log4j/log4j/1.2.17/log4j-1.2.17.jar:/Users/maple/.m2/repository/com/alibaba/fastjson/1.2.7/fastjson-1.2.7.jar:/Users/maple/.m2/repository/com/google/guava/guava/19.0/guava-19.0.jar:/Users/maple/.m2/repository/com/google/code/gson/gson/2.2.4/gson-2.2.4.jar:/Users/maple/.m2/repository/commons-httpclient/commons-httpclient/3.0/commons-httpclient-3.0.jar:/Users/maple/.m2/repository/junit/junit/3.8.1/junit-3.8.1.jar:/Users/maple/.m2/repository/commons-lang/commons-lang/2.6/commons-lang-2.6.jar:/Users/maple/.m2/repository/commons-logging/commons-logging/1.1.2/commons-logging-1.1.2.jar:/Users/maple/.m2/repository/javax/mail/mail/1.4.7/mail-1.4.7.jar:/Users/maple/.m2/repository/javax/activation/activation/1.1/activation-1.1.jar:/Users/maple/.m2/repository/com/101tec/zkclient/0.9/zkclient-0.9.jar:/Users/maple/.m2/repository/org/apache/zookeeper/zookeeper/3.4.8/zookeeper-3.4.8.jar:/Users/maple/.m2/repository/jline/jline/0.9.94/jline-0.9.94.jar:/Users/maple/.m2/repository/io/netty/netty/3.7.0.Final/netty-3.7.0.Final.jar:/Users/maple/.m2/repository/org/apache/kafka/kafka_2.11/0.10.2.0/kafka_2.11-0.10.2.0.jar:/Users/maple/.m2/repository/org/apache/kafka/kafka-clients/0.10.2.0/kafka-clients-0.10.2.0.jar:/Users/maple/.m2/repository/net/jpountz/lz4/lz4/1.3.0/lz4-1.3.0.jar:/Users/maple/.m2/repository/org/xerial/snappy/snappy-java/1.1.2.6/snappy-java-1.1.2.6.jar:/Users/maple/.m2/repository/net/sf/jopt-simple/jopt-simple/5.0.3/jopt-simple-5.0.3.jar:/Users/maple/.m2/repository/com/yammer/metrics/metrics-core/2.2.0/metrics-core-2.2.0.jar:/Users/maple/.m2/repository/org/scala-lang/scala-library/2.11.8/scala-library-2.11.8.jar:/Users/maple/.m2/repository/org/scala-lang/modules/scala-parser-combinators_2.11/1.0.4/scala-parser-combinators_2.11-1.0.4.jar:/Users/maple/.m2/repository/mysql/mysql-connector-java/5.1.30/mysql-connector-java-5.1.30.jar:/Users/maple/.m2/repository/org/xerial/sqlite-jdbc/3.21.0.1/sqlite-jdbc-3.21.0.1.jar:/Users/maple/.m2/repository/org/springframework/spring-core/5.0.4.RELEASE/spring-core-5.0.4.RELEASE.jar:/Users/maple/.m2/repository/org/springframework/spring-jcl/5.0.4.RELEASE/spring-jcl-5.0.4.RELEASE.jar:/Users/maple/.m2/repository/org/apache/calcite/calcite-core/1.11.0/calcite-core-1.11.0.jar:/Users/maple/.m2/repository/org/apache/calcite/avatica/avatica-core/1.9.0/avatica-core-1.9.0.jar:/Users/maple/.m2/repository/org/apache/calcite/avatica/avatica-metrics/1.9.0/avatica-metrics-1.9.0.jar:/Users/maple/.m2/repository/org/apache/httpcomponents/httpclient/4.5.2/httpclient-4.5.2.jar:/Users/maple/.m2/repository/org/apache/httpcomponents/httpcore/4.4.4/httpcore-4.4.4.jar:/Users/maple/.m2/repository/commons-dbcp/commons-dbcp/1.4/commons-dbcp-1.4.jar:/Users/maple/.m2/repository/commons-pool/commons-pool/1.5.4/commons-pool-1.5.4.jar:/Users/maple/.m2/repository/org/apache/commons/commons-lang3/3.2/commons-lang3-3.2.jar:/Users/maple/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.6.3/jackson-core-2.6.3.jar:/Users/maple/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.6.3/jackson-annotations-2.6.3.jar:/Users/maple/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.6.3/jackson-databind-2.6.3.jar:/Users/maple/.m2/repository/com/google/code/findbugs/jsr305/1.3.9/jsr305-1.3.9.jar:/Users/maple/.m2/repository/net/hydromatic/aggdesigner-algorithm/6.0/aggdesigner-algorithm-6.0.jar:/Users/maple/.m2/repository/org/codehaus/janino/janino/2.7.6/janino-2.7.6.jar:/Users/maple/.m2/repository/org/codehaus/janino/commons-compiler/2.7.6/commons-compiler-2.7.6.jar:/Users/maple/.m2/repository/org/slf4j/slf4j-api/1.7.13/slf4j-api-1.7.13.jar:/Users/maple/.m2/repository/org/apache/calcite/calcite-avatica/1.6.0/calcite-avatica-1.6.0.jar:/Users/maple/.m2/repository/com/google/protobuf/protobuf-java/3.0.0-beta-1/protobuf-java-3.0.0-beta-1.jar:/Users/maple/.m2/repository/org/apache/calcite/calcite-linq4j/1.11.0/calcite-linq4j-1.11.0.jar:/Users/maple/.m2/repository/org/apache/ignite/ignite-core/2.3.0/ignite-core-2.3.0.jar:/Users/maple/.m2/repository/javax/cache/cache-api/1.0.0/cache-api-1.0.0.jar:/Users/maple/.m2/repository/org/jetbrains/annotations/13.0/annotations-13.0.jar:/Users/maple/.m2/repository/org/gridgain/ignite-shmem/1.0.0/ignite-shmem-1.0.0.jar:/Users/maple/.m2/repository/org/apache/ignite/ignite-spring/2.3.0/ignite-spring-2.3.0.jar:/Users/maple/.m2/repository/org/springframework/spring-aop/4.3.7.RELEASE/spring-aop-4.3.7.RELEASE.jar:/Users/maple/.m2/repository/org/springframework/spring-beans/4.3.7.RELEASE/spring-beans-4.3.7.RELEASE.jar:/Users/maple/.m2/repository/org/springframework/spring-context/4.3.7.RELEASE/spring-context-4.3.7.RELEASE.jar:/Users/maple/.m2/repository/org/springframework/spring-expression/4.3.7.RELEASE/spring-expression-4.3.7.RELEASE.jar:/Users/maple/.m2/repository/org/springframework/spring-tx/4.3.7.RELEASE/spring-tx-4.3.7.RELEASE.jar:/Users/maple/.m2/repository/org/springframework/spring-jdbc/4.3.7.RELEASE/spring-jdbc-4.3.7.RELEASE.jar:/Users/maple/.m2/repository/org/apache/ignite/ignite-indexing/2.3.0/ignite-indexing-2.3.0.jar:/Users/maple/.m2/repository/commons-codec/commons-codec/1.6/commons-codec-1.6.jar:/Users/maple/.m2/repository/org/apache/lucene/lucene-core/5.5.2/lucene-core-5.5.2.jar:/Users/maple/.m2/repository/org/apache/lucene/lucene-analyzers-common/5.5.2/lucene-analyzers-common-5.5.2.jar:/Users/maple/.m2/repository/org/apache/lucene/lucene-queryparser/5.5.2/lucene-queryparser-5.5.2.jar:/Users/maple/.m2/repository/org/apache/lucene/lucene-queries/5.5.2/lucene-queries-5.5.2.jar:/Users/maple/.m2/repository/org/apache/lucene/lucene-sandbox/5.5.2/lucene-sandbox-5.5.2.jar:/Users/maple/.m2/repository/com/h2database/h2/1.4.195/h2-1.4.195.jar:
+ [2018-06-13 20:21:13] ZooKeeper.main - INFO  - Client environment:java.library.path=/Users/maple/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.
+ [2018-06-13 20:21:13] ZooKeeper.main - INFO  - Client environment:java.io.tmpdir=/var/folders/b3/3qln3fjx61v26zql8r7sdhg00000gn/T/
+ [2018-06-13 20:21:13] ZooKeeper.main - INFO  - Client environment:java.compiler=<NA>
+ [2018-06-13 20:21:13] ZooKeeper.main - INFO  - Client environment:os.name=Mac OS X
+ [2018-06-13 20:21:13] ZooKeeper.main - INFO  - Client environment:os.arch=x86_64
+ [2018-06-13 20:21:13] ZooKeeper.main - INFO  - Client environment:os.version=10.13.3
+ [2018-06-13 20:21:13] ZooKeeper.main - INFO  - Client environment:user.name=maple
+ [2018-06-13 20:21:13] ZooKeeper.main - INFO  - Client environment:user.home=/Users/maple
+ [2018-06-13 20:21:13] ZooKeeper.main - INFO  - Client environment:user.dir=/Users/maple/ideaspace/kafka-eagle-git/kafka-eagle-core
+ [2018-06-13 20:21:13] ZooKeeper.main - INFO  - Initiating client connection, connectString=127.0.0.1:2181 sessionTimeout=30000 watcher=org.I0Itec.zkclient.ZkClient@35851384
+ [2018-06-13 20:21:13] ZkClient.main - INFO  - Waiting for keeper state SyncConnected
+ [2018-06-13 20:21:13] ClientCnxn.main-SendThread(127.0.0.1:2181) - INFO  - Opening socket connection to server 127.0.0.1/127.0.0.1:2181. Will not attempt to authenticate using SASL (unknown error)
+ [2018-06-13 20:21:13] ClientCnxn.main-SendThread(127.0.0.1:2181) - INFO  - Socket connection established to 127.0.0.1/127.0.0.1:2181, initiating session
+ [2018-06-13 20:21:13] ClientCnxn.main-SendThread(127.0.0.1:2181) - INFO  - Session establishment complete on server 127.0.0.1/127.0.0.1:2181, sessionid = 0x100068bf6af0016, negotiated timeout = 30000
+ [2018-06-13 20:21:13] ZkClient.main-EventThread - INFO  - zookeeper state changed (SyncConnected)
+ [2018-06-13 20:21:13] ZkEventThread.ZkClient-EventThread-13-127.0.0.1:2181 - INFO  - Starting ZkClient event thread.
+ [2018-06-13 20:21:13] ZooKeeper.main - INFO  - Initiating client connection, connectString=127.0.0.1:2181 sessionTimeout=2147483647 watcher=org.I0Itec.zkclient.ZkClient@2d209079
+ [2018-06-13 20:21:13] ClientCnxn.main-SendThread(127.0.0.1:2181) - INFO  - Opening socket connection to server 127.0.0.1/127.0.0.1:2181. Will not attempt to authenticate using SASL (unknown error)
+ [2018-06-13 20:21:13] ZkClient.main - INFO  - Waiting for keeper state SyncConnected
+ [2018-06-13 20:21:13] ClientCnxn.main-SendThread(127.0.0.1:2181) - INFO  - Socket connection established to 127.0.0.1/127.0.0.1:2181, initiating session
+ [2018-06-13 20:21:13] ClientCnxn.main-SendThread(127.0.0.1:2181) - INFO  - Session establishment complete on server 127.0.0.1/127.0.0.1:2181, sessionid = 0x100068bf6af0017, negotiated timeout = 40000
+ [2018-06-13 20:21:13] ZkClient.main-EventThread - INFO  - zookeeper state changed (SyncConnected)
+ [2018-06-13 20:21:13] ZooKeeper.main - INFO  - Initiating client connection, connectString=127.0.0.1:2181 sessionTimeout=30000 watcher=org.I0Itec.zkclient.ZkClient@6bdf28bb
+ [2018-06-13 20:21:13] ZkEventThread.ZkClient-EventThread-16-127.0.0.1:2181 - INFO  - Starting ZkClient event thread.
+ [2018-06-13 20:21:13] ClientCnxn.main-SendThread(127.0.0.1:2181) - INFO  - Opening socket connection to server 127.0.0.1/127.0.0.1:2181. Will not attempt to authenticate using SASL (unknown error)
+ [2018-06-13 20:21:13] ZkClient.main - INFO  - Waiting for keeper state SyncConnected
+ [2018-06-13 20:21:13] ClientCnxn.main-SendThread(127.0.0.1:2181) - INFO  - Socket connection established to 127.0.0.1/127.0.0.1:2181, initiating session
+ [2018-06-13 20:21:13] ClientCnxn.main-SendThread(127.0.0.1:2181) - INFO  - Session establishment complete on server 127.0.0.1/127.0.0.1:2181, sessionid = 0x100068bf6af0018, negotiated timeout = 30000
+ [2018-06-13 20:21:13] ZkClient.main-EventThread - INFO  - zookeeper state changed (SyncConnected)
+ [2018-06-13 20:21:13] ZooKeeper.main - INFO  - Initiating client connection, connectString=127.0.0.1:2181 sessionTimeout=2147483647 watcher=org.I0Itec.zkclient.ZkClient@6b71769e
+ [2018-06-13 20:21:13] ZkEventThread.ZkClient-EventThread-19-127.0.0.1:2181 - INFO  - Starting ZkClient event thread.
+ [2018-06-13 20:21:13] ZkClient.main - INFO  - Waiting for keeper state SyncConnected
+ [2018-06-13 20:21:13] ClientCnxn.main-SendThread(127.0.0.1:2181) - INFO  - Opening socket connection to server 127.0.0.1/127.0.0.1:2181. Will not attempt to authenticate using SASL (unknown error)
+ [2018-06-13 20:21:13] ClientCnxn.main-SendThread(127.0.0.1:2181) - INFO  - Socket connection established to 127.0.0.1/127.0.0.1:2181, initiating session
+ [2018-06-13 20:21:13] ClientCnxn.main-SendThread(127.0.0.1:2181) - INFO  - Session establishment complete on server 127.0.0.1/127.0.0.1:2181, sessionid = 0x100068bf6af0019, negotiated timeout = 40000
+ [2018-06-13 20:21:13] ZkClient.main-EventThread - INFO  - zookeeper state changed (SyncConnected)
+ [2018-06-13 20:21:13] ZooKeeper.main - INFO  - Initiating client connection, connectString=127.0.0.1:2181 sessionTimeout=30000 watcher=org.I0Itec.zkclient.ZkClient@2752f6e2
+ [2018-06-13 20:21:13] ZkEventThread.ZkClient-EventThread-22-127.0.0.1:2181 - INFO  - Starting ZkClient event thread.
+ [2018-06-13 20:21:13] ZkClient.main - INFO  - Waiting for keeper state SyncConnected
+ [2018-06-13 20:21:13] ClientCnxn.main-SendThread(127.0.0.1:2181) - INFO  - Opening socket connection to server 127.0.0.1/127.0.0.1:2181. Will not attempt to authenticate using SASL (unknown error)
+ [2018-06-13 20:21:13] ClientCnxn.main-SendThread(127.0.0.1:2181) - INFO  - Socket connection established to 127.0.0.1/127.0.0.1:2181, initiating session
+ [2018-06-13 20:21:13] ClientCnxn.main-SendThread(127.0.0.1:2181) - INFO  - Session establishment complete on server 127.0.0.1/127.0.0.1:2181, sessionid = 0x100068bf6af001a, negotiated timeout = 30000
+ [2018-06-13 20:21:13] ZkClient.main-EventThread - INFO  - zookeeper state changed (SyncConnected)
+ [2018-06-13 20:21:13] ZkEventThread.ZkClient-EventThread-25-127.0.0.1:2181 - INFO  - Starting ZkClient event thread.
+ [2018-06-13 20:21:13] ZooKeeper.main - INFO  - Initiating client connection, connectString=127.0.0.1:2181 sessionTimeout=2147483647 watcher=org.I0Itec.zkclient.ZkClient@e580929
+ [2018-06-13 20:21:13] ClientCnxn.main-SendThread(127.0.0.1:2181) - INFO  - Opening socket connection to server 127.0.0.1/127.0.0.1:2181. Will not attempt to authenticate using SASL (unknown error)
+ [2018-06-13 20:21:13] ZkClient.main - INFO  - Waiting for keeper state SyncConnected
+ [2018-06-13 20:21:13] ClientCnxn.main-SendThread(127.0.0.1:2181) - INFO  - Socket connection established to 127.0.0.1/127.0.0.1:2181, initiating session
+ [2018-06-13 20:21:13] ClientCnxn.main-SendThread(127.0.0.1:2181) - INFO  - Session establishment complete on server 127.0.0.1/127.0.0.1:2181, sessionid = 0x100068bf6af001b, negotiated timeout = 40000
+ [2018-06-13 20:21:13] ZkClient.main-EventThread - INFO  - zookeeper state changed (SyncConnected)
+ [2018-06-13 20:21:13] ZooKeeper.main - INFO  - Initiating client connection, connectString=127.0.0.1:2181 sessionTimeout=30000 watcher=org.I0Itec.zkclient.ZkClient@1cd072a9
+ [2018-06-13 20:21:13] ZkEventThread.ZkClient-EventThread-28-127.0.0.1:2181 - INFO  - Starting ZkClient event thread.
+ [2018-06-13 20:21:13] ZkClient.main - INFO  - Waiting for keeper state SyncConnected
+ [2018-06-13 20:21:13] ClientCnxn.main-SendThread(127.0.0.1:2181) - INFO  - Opening socket connection to server 127.0.0.1/127.0.0.1:2181. Will not attempt to authenticate using SASL (unknown error)
+ [2018-06-13 20:21:13] ClientCnxn.main-SendThread(127.0.0.1:2181) - INFO  - Socket connection established to 127.0.0.1/127.0.0.1:2181, initiating session
+ [2018-06-13 20:21:13] ClientCnxn.main-SendThread(127.0.0.1:2181) - INFO  - Session establishment complete on server 127.0.0.1/127.0.0.1:2181, sessionid = 0x100068bf6af001c, negotiated timeout = 30000
+ [2018-06-13 20:21:13] ZkClient.main-EventThread - INFO  - zookeeper state changed (SyncConnected)
+ [2018-06-13 20:21:13] ZooKeeper.main - INFO  - Initiating client connection, connectString=127.0.0.1:2181 sessionTimeout=2147483647 watcher=org.I0Itec.zkclient.ZkClient@7c75222b
+ [2018-06-13 20:21:13] ZkEventThread.ZkClient-EventThread-31-127.0.0.1:2181 - INFO  - Starting ZkClient event thread.
+ [2018-06-13 20:21:13] ClientCnxn.main-SendThread(127.0.0.1:2181) - INFO  - Opening socket connection to server 127.0.0.1/127.0.0.1:2181. Will not attempt to authenticate using SASL (unknown error)
+ [2018-06-13 20:21:13] ZkClient.main - INFO  - Waiting for keeper state SyncConnected
+ [2018-06-13 20:21:13] ClientCnxn.main-SendThread(127.0.0.1:2181) - INFO  - Socket connection established to 127.0.0.1/127.0.0.1:2181, initiating session
+ [2018-06-13 20:21:13] ClientCnxn.main-SendThread(127.0.0.1:2181) - INFO  - Session establishment complete on server 127.0.0.1/127.0.0.1:2181, sessionid = 0x100068bf6af001d, negotiated timeout = 40000
+ [2018-06-13 20:21:13] ZkClient.main-EventThread - INFO  - zookeeper state changed (SyncConnected)
+ [2018-06-13 20:21:13] ZooKeeper.main - INFO  - Initiating client connection, connectString=127.0.0.1:2181 sessionTimeout=30000 watcher=org.I0Itec.zkclient.ZkClient@4c203ea1
+ [2018-06-13 20:21:13] ZkEventThread.ZkClient-EventThread-34-127.0.0.1:2181 - INFO  - Starting ZkClient event thread.
+ [2018-06-13 20:21:13] ClientCnxn.main-SendThread(127.0.0.1:2181) - INFO  - Opening socket connection to server 127.0.0.1/127.0.0.1:2181. Will not attempt to authenticate using SASL (unknown error)
+ [2018-06-13 20:21:13] ClientCnxn.main-SendThread(127.0.0.1:2181) - INFO  - Socket connection established to 127.0.0.1/127.0.0.1:2181, initiating session
+ [2018-06-13 20:21:13] ZkClient.main - INFO  - Waiting for keeper state SyncConnected
+ [2018-06-13 20:21:13] ClientCnxn.main-SendThread(127.0.0.1:2181) - INFO  - Session establishment complete on server 127.0.0.1/127.0.0.1:2181, sessionid = 0x100068bf6af001e, negotiated timeout = 30000
+ [2018-06-13 20:21:13] ZkClient.main-EventThread - INFO  - zookeeper state changed (SyncConnected)
+ [2018-06-13 20:21:13] ZkEventThread.ZkClient-EventThread-37-127.0.0.1:2181 - INFO  - Starting ZkClient event thread.
+ [2018-06-13 20:21:13] ZooKeeper.main - INFO  - Initiating client connection, connectString=127.0.0.1:2181 sessionTimeout=2147483647 watcher=org.I0Itec.zkclient.ZkClient@27f674d
+ [2018-06-13 20:21:13] ZkClient.main - INFO  - Waiting for keeper state SyncConnected
+ [2018-06-13 20:21:13] ClientCnxn.main-SendThread(127.0.0.1:2181) - INFO  - Opening socket connection to server 127.0.0.1/127.0.0.1:2181. Will not attempt to authenticate using SASL (unknown error)
+ [2018-06-13 20:21:13] ClientCnxn.main-SendThread(127.0.0.1:2181) - INFO  - Socket connection established to 127.0.0.1/127.0.0.1:2181, initiating session
+ [2018-06-13 20:21:13] ClientCnxn.main-SendThread(127.0.0.1:2181) - INFO  - Session establishment complete on server 127.0.0.1/127.0.0.1:2181, sessionid = 0x100068bf6af001f, negotiated timeout = 40000
+ [2018-06-13 20:21:13] ZkClient.main-EventThread - INFO  - zookeeper state changed (SyncConnected)
+ [2018-06-13 20:21:13] ZooKeeper.main - INFO  - Initiating client connection, connectString=127.0.0.1:2181 sessionTimeout=30000 watcher=org.I0Itec.zkclient.ZkClient@1d251891
+ [2018-06-13 20:21:13] ZkEventThread.ZkClient-EventThread-40-127.0.0.1:2181 - INFO  - Starting ZkClient event thread.
+ [2018-06-13 20:21:13] ZkClient.main - INFO  - Waiting for keeper state SyncConnected
+ [2018-06-13 20:21:13] ClientCnxn.main-SendThread(127.0.0.1:2181) - INFO  - Opening socket connection to server 127.0.0.1/127.0.0.1:2181. Will not attempt to authenticate using SASL (unknown error)
+ [2018-06-13 20:21:13] ClientCnxn.main-SendThread(127.0.0.1:2181) - INFO  - Socket connection established to 127.0.0.1/127.0.0.1:2181, initiating session
+ [2018-06-13 20:21:13] ClientCnxn.main-SendThread(127.0.0.1:2181) - INFO  - Session establishment complete on server 127.0.0.1/127.0.0.1:2181, sessionid = 0x100068bf6af0020, negotiated timeout = 30000
+ [2018-06-13 20:21:13] ZkClient.main-EventThread - INFO  - zookeeper state changed (SyncConnected)
+ [2018-06-13 20:21:13] ZooKeeper.main - INFO  - Initiating client connection, connectString=127.0.0.1:2181 sessionTimeout=2147483647 watcher=org.I0Itec.zkclient.ZkClient@48140564
+ [2018-06-13 20:21:13] ZkEventThread.ZkClient-EventThread-43-127.0.0.1:2181 - INFO  - Starting ZkClient event thread.
+ [2018-06-13 20:21:13] ClientCnxn.main-SendThread(127.0.0.1:2181) - INFO  - Opening socket connection to server 127.0.0.1/127.0.0.1:2181. Will not attempt to authenticate using SASL (unknown error)
+ [2018-06-13 20:21:13] ZkClient.main - INFO  - Waiting for keeper state SyncConnected
+ [2018-06-13 20:21:13] ClientCnxn.main-SendThread(127.0.0.1:2181) - INFO  - Socket connection established to 127.0.0.1/127.0.0.1:2181, initiating session
+ [2018-06-13 20:21:13] ClientCnxn.main-SendThread(127.0.0.1:2181) - INFO  - Session establishment complete on server 127.0.0.1/127.0.0.1:2181, sessionid = 0x100068bf6af0021, negotiated timeout = 40000
+ [2018-06-13 20:21:13] ZkClient.main-EventThread - INFO  - zookeeper state changed (SyncConnected)
+ [2018-06-13 20:21:13] ZooKeeper.main - INFO  - Initiating client connection, connectString=127.0.0.1:2181 sessionTimeout=30000 watcher=org.I0Itec.zkclient.ZkClient@58ceff1
+ [2018-06-13 20:21:13] ZkEventThread.ZkClient-EventThread-46-127.0.0.1:2181 - INFO  - Starting ZkClient event thread.
+ [2018-06-13 20:21:13] ZkClient.main - INFO  - Waiting for keeper state SyncConnected
+ [2018-06-13 20:21:13] ClientCnxn.main-SendThread(127.0.0.1:2181) - INFO  - Opening socket connection to server 127.0.0.1/127.0.0.1:2181. Will not attempt to authenticate using SASL (unknown error)
+ [2018-06-13 20:21:13] ClientCnxn.main-SendThread(127.0.0.1:2181) - INFO  - Socket connection established to 127.0.0.1/127.0.0.1:2181, initiating session
+ [2018-06-13 20:21:13] ClientCnxn.main-SendThread(127.0.0.1:2181) - INFO  - Session establishment complete on server 127.0.0.1/127.0.0.1:2181, sessionid = 0x100068bf6af0022, negotiated timeout = 30000
+ [2018-06-13 20:21:13] ZkClient.main-EventThread - INFO  - zookeeper state changed (SyncConnected)
+ [2018-06-13 20:21:13] ZooKeeper.main - INFO  - Initiating client connection, connectString=127.0.0.1:2181 sessionTimeout=2147483647 watcher=org.I0Itec.zkclient.ZkClient@7c30a502
+ [2018-06-13 20:21:13] ZkEventThread.ZkClient-EventThread-49-127.0.0.1:2181 - INFO  - Starting ZkClient event thread.
+ [2018-06-13 20:21:13] ClientCnxn.main-SendThread(127.0.0.1:2181) - INFO  - Opening socket connection to server 127.0.0.1/127.0.0.1:2181. Will not attempt to authenticate using SASL (unknown error)
+ [2018-06-13 20:21:13] ClientCnxn.main-SendThread(127.0.0.1:2181) - INFO  - Socket connection established to 127.0.0.1/127.0.0.1:2181, initiating session
+ [2018-06-13 20:21:13] ZkClient.main - INFO  - Waiting for keeper state SyncConnected
+ [2018-06-13 20:21:13] ClientCnxn.main-SendThread(127.0.0.1:2181) - INFO  - Session establishment complete on server 127.0.0.1/127.0.0.1:2181, sessionid = 0x100068bf6af0023, negotiated timeout = 40000
+ [2018-06-13 20:21:13] ZkClient.main-EventThread - INFO  - zookeeper state changed (SyncConnected)
+ [2018-06-13 20:21:13] ZooKeeper.main - INFO  - Initiating client connection, connectString=127.0.0.1:2181 sessionTimeout=30000 watcher=org.I0Itec.zkclient.ZkClient@49e4cb85
+ [2018-06-13 20:21:13] ZkEventThread.ZkClient-EventThread-52-127.0.0.1:2181 - INFO  - Starting ZkClient event thread.
+ [2018-06-13 20:21:13] ClientCnxn.main-SendThread(127.0.0.1:2181) - INFO  - Opening socket connection to server 127.0.0.1/127.0.0.1:2181. Will not attempt to authenticate using SASL (unknown error)
+ [2018-06-13 20:21:13] ClientCnxn.main-SendThread(127.0.0.1:2181) - INFO  - Socket connection established to 127.0.0.1/127.0.0.1:2181, initiating session
+ [2018-06-13 20:21:13] ZkClient.main - INFO  - Waiting for keeper state SyncConnected
+ [2018-06-13 20:21:13] ClientCnxn.main-SendThread(127.0.0.1:2181) - INFO  - Session establishment complete on server 127.0.0.1/127.0.0.1:2181, sessionid = 0x100068bf6af0024, negotiated timeout = 30000
+ [2018-06-13 20:21:13] ZkClient.main-EventThread - INFO  - zookeeper state changed (SyncConnected)
+ [2018-06-13 20:21:13] ZkEventThread.ZkClient-EventThread-55-127.0.0.1:2181 - INFO  - Starting ZkClient event thread.
+ [2018-06-13 20:21:13] ZooKeeper.main - INFO  - Initiating client connection, connectString=127.0.0.1:2181 sessionTimeout=2147483647 watcher=org.I0Itec.zkclient.ZkClient@2133c8f8
+ [2018-06-13 20:21:13] ClientCnxn.main-SendThread(127.0.0.1:2181) - INFO  - Opening socket connection to server 127.0.0.1/127.0.0.1:2181. Will not attempt to authenticate using SASL (unknown error)
+ [2018-06-13 20:21:13] ClientCnxn.main-SendThread(127.0.0.1:2181) - INFO  - Socket connection established to 127.0.0.1/127.0.0.1:2181, initiating session
+ [2018-06-13 20:21:13] ZkClient.main - INFO  - Waiting for keeper state SyncConnected
+ [2018-06-13 20:21:13] ClientCnxn.main-SendThread(127.0.0.1:2181) - INFO  - Session establishment complete on server 127.0.0.1/127.0.0.1:2181, sessionid = 0x100068bf6af0025, negotiated timeout = 40000
+ [2018-06-13 20:21:13] ZkClient.main-EventThread - INFO  - zookeeper state changed (SyncConnected)
+ [2018-06-13 20:21:13] ZooKeeper.main - INFO  - Initiating client connection, connectString=127.0.0.1:2181 sessionTimeout=30000 watcher=org.I0Itec.zkclient.ZkClient@5594a1b5
+ [2018-06-13 20:21:13] ZkEventThread.ZkClient-EventThread-58-127.0.0.1:2181 - INFO  - Starting ZkClient event thread.
+ [2018-06-13 20:21:13] ZkClient.main - INFO  - Waiting for keeper state SyncConnected
+ [2018-06-13 20:21:13] ClientCnxn.main-SendThread(127.0.0.1:2181) - INFO  - Opening socket connection to server 127.0.0.1/127.0.0.1:2181. Will not attempt to authenticate using SASL (unknown error)
+ [2018-06-13 20:21:13] ClientCnxn.main-SendThread(127.0.0.1:2181) - INFO  - Socket connection established to 127.0.0.1/127.0.0.1:2181, initiating session
+ [2018-06-13 20:21:13] ClientCnxn.main-SendThread(127.0.0.1:2181) - INFO  - Session establishment complete on server 127.0.0.1/127.0.0.1:2181, sessionid = 0x100068bf6af0026, negotiated timeout = 30000
+ [2018-06-13 20:21:13] ZkClient.main-EventThread - INFO  - zookeeper state changed (SyncConnected)
+ [2018-06-13 20:21:13] ZkEventThread.ZkClient-EventThread-61-127.0.0.1:2181 - INFO  - Starting ZkClient event thread.
+ [2018-06-13 20:21:13] ZooKeeper.main - INFO  - Initiating client connection, connectString=127.0.0.1:2181 sessionTimeout=2147483647 watcher=org.I0Itec.zkclient.ZkClient@6a5fc7f7
+ [2018-06-13 20:21:13] ClientCnxn.main-SendThread(127.0.0.1:2181) - INFO  - Opening socket connection to server 127.0.0.1/127.0.0.1:2181. Will not attempt to authenticate using SASL (unknown error)
+ [2018-06-13 20:21:13] ClientCnxn.main-SendThread(127.0.0.1:2181) - INFO  - Socket connection established to 127.0.0.1/127.0.0.1:2181, initiating session
+ [2018-06-13 20:21:13] ClientCnxn.main-SendThread(127.0.0.1:2181) - INFO  - Session establishment complete on server 127.0.0.1/127.0.0.1:2181, sessionid = 0x100068bf6af0027, negotiated timeout = 40000
+ [2018-06-13 20:21:13] ZkClient.main - INFO  - Waiting for keeper state SyncConnected
+ [2018-06-13 20:21:13] ZkClient.main-EventThread - INFO  - zookeeper state changed (SyncConnected)
+ [2018-06-13 20:21:13] ZkEventThread.ZkClient-EventThread-64-127.0.0.1:2181 - INFO  - Starting ZkClient event thread.
+ [2018-06-13 20:21:13] ZooKeeper.main - INFO  - Initiating client connection, connectString=127.0.0.1:2181 sessionTimeout=30000 watcher=org.I0Itec.zkclient.ZkClient@3b6eb2ec
+ [2018-06-13 20:21:13] ClientCnxn.main-SendThread(127.0.0.1:2181) - INFO  - Opening socket connection to server 127.0.0.1/127.0.0.1:2181. Will not attempt to authenticate using SASL (unknown error)
+ [2018-06-13 20:21:13] ClientCnxn.main-SendThread(127.0.0.1:2181) - INFO  - Socket connection established to 127.0.0.1/127.0.0.1:2181, initiating session
+ [2018-06-13 20:21:13] ClientCnxn.main-SendThread(127.0.0.1:2181) - INFO  - Session establishment complete on server 127.0.0.1/127.0.0.1:2181, sessionid = 0x100068bf6af0028, negotiated timeout = 30000
+ [2018-06-13 20:21:13] ZkClient.main - INFO  - Waiting for keeper state SyncConnected
+ [2018-06-13 20:21:13] ZkClient.main-EventThread - INFO  - zookeeper state changed (SyncConnected)
+ [2018-06-13 20:21:13] ZkEventThread.ZkClient-EventThread-67-127.0.0.1:2181 - INFO  - Starting ZkClient event thread.
+ [2018-06-13 20:21:13] ZooKeeper.main - INFO  - Initiating client connection, connectString=127.0.0.1:2181 sessionTimeout=2147483647 watcher=org.I0Itec.zkclient.ZkClient@1e643faf
+ [2018-06-13 20:21:13] ClientCnxn.main-SendThread(127.0.0.1:2181) - INFO  - Opening socket connection to server 127.0.0.1/127.0.0.1:2181. Will not attempt to authenticate using SASL (unknown error)
+ [2018-06-13 20:21:13] ClientCnxn.main-SendThread(127.0.0.1:2181) - INFO  - Socket connection established to 127.0.0.1/127.0.0.1:2181, initiating session
+ [2018-06-13 20:21:13] ClientCnxn.main-SendThread(127.0.0.1:2181) - INFO  - Session establishment complete on server 127.0.0.1/127.0.0.1:2181, sessionid = 0x100068bf6af0029, negotiated timeout = 40000
+ [2018-06-13 20:21:13] ZkClient.main - INFO  - Waiting for keeper state SyncConnected
+ [2018-06-13 20:21:13] ZkClient.main-EventThread - INFO  - zookeeper state changed (SyncConnected)
+ [2018-06-13 20:21:13] ZkEventThread.ZkClient-EventThread-70-127.0.0.1:2181 - INFO  - Starting ZkClient event thread.
+ [2018-06-13 20:21:13] ZooKeeper.main - INFO  - Initiating client connection, connectString=127.0.0.1:2181 sessionTimeout=30000 watcher=org.I0Itec.zkclient.ZkClient@6e8dacdf
+ [2018-06-13 20:21:13] ClientCnxn.main-SendThread(127.0.0.1:2181) - INFO  - Opening socket connection to server 127.0.0.1/127.0.0.1:2181. Will not attempt to authenticate using SASL (unknown error)
+ [2018-06-13 20:21:13] ClientCnxn.main-SendThread(127.0.0.1:2181) - INFO  - Socket connection established to 127.0.0.1/127.0.0.1:2181, initiating session
+ [2018-06-13 20:21:13] ClientCnxn.main-SendThread(127.0.0.1:2181) - INFO  - Session establishment complete on server 127.0.0.1/127.0.0.1:2181, sessionid = 0x100068bf6af002a, negotiated timeout = 30000
+ [2018-06-13 20:21:13] ZkClient.main - INFO  - Waiting for keeper state SyncConnected
+ [2018-06-13 20:21:13] ZkClient.main-EventThread - INFO  - zookeeper state changed (SyncConnected)
+ [2018-06-13 20:21:13] ZkEventThread.ZkClient-EventThread-73-127.0.0.1:2181 - INFO  - Starting ZkClient event thread.
+ [2018-06-13 20:21:13] ZooKeeper.main - INFO  - Initiating client connection, connectString=127.0.0.1:2181 sessionTimeout=2147483647 watcher=org.I0Itec.zkclient.ZkClient@7a79be86
+ [2018-06-13 20:21:13] ClientCnxn.main-SendThread(127.0.0.1:2181) - INFO  - Opening socket connection to server 127.0.0.1/127.0.0.1:2181. Will not attempt to authenticate using SASL (unknown error)
+ [2018-06-13 20:21:13] ClientCnxn.main-SendThread(127.0.0.1:2181) - INFO  - Socket connection established to 127.0.0.1/127.0.0.1:2181, initiating session
+ [2018-06-13 20:21:13] ZkClient.main - INFO  - Waiting for keeper state SyncConnected
+ [2018-06-13 20:21:13] ClientCnxn.main-SendThread(127.0.0.1:2181) - INFO  - Session establishment complete on server 127.0.0.1/127.0.0.1:2181, sessionid = 0x100068bf6af002b, negotiated timeout = 40000
+ [2018-06-13 20:21:13] ZkClient.main-EventThread - INFO  - zookeeper state changed (SyncConnected)
+ [2018-06-13 20:21:13] ZooKeeper.main - INFO  - Initiating client connection, connectString=127.0.0.1:2181 sessionTimeout=30000 watcher=org.I0Itec.zkclient.ZkClient@34ce8af7
+ [2018-06-13 20:21:13] ZkEventThread.ZkClient-EventThread-76-127.0.0.1:2181 - INFO  - Starting ZkClient event thread.
+ [2018-06-13 20:21:13] ClientCnxn.main-SendThread(127.0.0.1:2181) - INFO  - Opening socket connection to server 127.0.0.1/127.0.0.1:2181. Will not attempt to authenticate using SASL (unknown error)
+ [2018-06-13 20:21:13] ZkClient.main - INFO  - Waiting for keeper state SyncConnected
+ [2018-06-13 20:21:13] ClientCnxn.main-SendThread(127.0.0.1:2181) - INFO  - Socket connection established to 127.0.0.1/127.0.0.1:2181, initiating session
+ [2018-06-13 20:21:13] ClientCnxn.main-SendThread(127.0.0.1:2181) - INFO  - Session establishment complete on server 127.0.0.1/127.0.0.1:2181, sessionid = 0x100068bf6af002c, negotiated timeout = 30000
+ [2018-06-13 20:21:13] ZkClient.main-EventThread - INFO  - zookeeper state changed (SyncConnected)
+ [2018-06-13 20:21:13] ZkEventThread.ZkClient-EventThread-79-127.0.0.1:2181 - INFO  - Starting ZkClient event thread.
+ [2018-06-13 20:21:13] ZooKeeper.main - INFO  - Initiating client connection, connectString=127.0.0.1:2181 sessionTimeout=2147483647 watcher=org.I0Itec.zkclient.ZkClient@b684286
+ [2018-06-13 20:21:13] ClientCnxn.main-SendThread(127.0.0.1:2181) - INFO  - Opening socket connection to server 127.0.0.1/127.0.0.1:2181. Will not attempt to authenticate using SASL (unknown error)
+ [2018-06-13 20:21:13] ZkClient.main - INFO  - Waiting for keeper state SyncConnected
+ [2018-06-13 20:21:13] ClientCnxn.main-SendThread(127.0.0.1:2181) - INFO  - Socket connection established to 127.0.0.1/127.0.0.1:2181, initiating session
+ [2018-06-13 20:21:13] ClientCnxn.main-SendThread(127.0.0.1:2181) - INFO  - Session establishment complete on server 127.0.0.1/127.0.0.1:2181, sessionid = 0x100068bf6af002d, negotiated timeout = 40000
+ [2018-06-13 20:21:13] ZkClient.main-EventThread - INFO  - zookeeper state changed (SyncConnected)
+ [2018-06-13 20:21:13] ZooKeeper.main - INFO  - Initiating client connection, connectString=127.0.0.1:2181 sessionTimeout=30000 watcher=org.I0Itec.zkclient.ZkClient@880ec60
+ [2018-06-13 20:21:13] ZkEventThread.ZkClient-EventThread-82-127.0.0.1:2181 - INFO  - Starting ZkClient event thread.
+ [2018-06-13 20:21:13] ZkClient.main - INFO  - Waiting for keeper state SyncConnected
+ [2018-06-13 20:21:13] ClientCnxn.main-SendThread(127.0.0.1:2181) - INFO  - Opening socket connection to server 127.0.0.1/127.0.0.1:2181. Will not attempt to authenticate using SASL (unknown error)
+ [2018-06-13 20:21:13] ClientCnxn.main-SendThread(127.0.0.1:2181) - INFO  - Socket connection established to 127.0.0.1/127.0.0.1:2181, initiating session
+ [2018-06-13 20:21:13] ClientCnxn.main-SendThread(127.0.0.1:2181) - INFO  - Session establishment complete on server 127.0.0.1/127.0.0.1:2181, sessionid = 0x100068bf6af002e, negotiated timeout = 30000
+ [2018-06-13 20:21:13] ZkClient.main-EventThread - INFO  - zookeeper state changed (SyncConnected)
+ [2018-06-13 20:21:13] ZooKeeper.main - INFO  - Initiating client connection, connectString=127.0.0.1:2181 sessionTimeout=2147483647 watcher=org.I0Itec.zkclient.ZkClient@3f3afe78
+ [2018-06-13 20:21:13] ZkEventThread.ZkClient-EventThread-85-127.0.0.1:2181 - INFO  - Starting ZkClient event thread.
+ [2018-06-13 20:21:13] ZkClient.main - INFO  - Waiting for keeper state SyncConnected
+ [2018-06-13 20:21:13] ClientCnxn.main-SendThread(127.0.0.1:2181) - INFO  - Opening socket connection to server 127.0.0.1/127.0.0.1:2181. Will not attempt to authenticate using SASL (unknown error)
+ [2018-06-13 20:21:13] ClientCnxn.main-SendThread(127.0.0.1:2181) - INFO  - Socket connection established to 127.0.0.1/127.0.0.1:2181, initiating session
+ [2018-06-13 20:21:13] ClientCnxn.main-SendThread(127.0.0.1:2181) - INFO  - Session establishment complete on server 127.0.0.1/127.0.0.1:2181, sessionid = 0x100068bf6af002f, negotiated timeout = 40000
+ [2018-06-13 20:21:13] ZkClient.main-EventThread - INFO  - zookeeper state changed (SyncConnected)
+ [2018-06-13 20:21:13] ZkEventThread.ZkClient-EventThread-88-127.0.0.1:2181 - INFO  - Starting ZkClient event thread.
+ [2018-06-13 20:21:13] ZooKeeper.main - INFO  - Initiating client connection, connectString=127.0.0.1:2181 sessionTimeout=30000 watcher=org.I0Itec.zkclient.ZkClient@7f63425a
+ [2018-06-13 20:21:13] ZkClient.main - INFO  - Waiting for keeper state SyncConnected
+ [2018-06-13 20:21:13] ClientCnxn.main-SendThread(127.0.0.1:2181) - INFO  - Opening socket connection to server 127.0.0.1/127.0.0.1:2181. Will not attempt to authenticate using SASL (unknown error)
+ [2018-06-13 20:21:13] ClientCnxn.main-SendThread(127.0.0.1:2181) - INFO  - Socket connection established to 127.0.0.1/127.0.0.1:2181, initiating session
+ [2018-06-13 20:21:13] ClientCnxn.main-SendThread(127.0.0.1:2181) - INFO  - Session establishment complete on server 127.0.0.1/127.0.0.1:2181, sessionid = 0x100068bf6af0030, negotiated timeout = 30000
+ [2018-06-13 20:21:13] ZkClient.main-EventThread - INFO  - zookeeper state changed (SyncConnected)
+ [2018-06-13 20:21:13] ZkEventThread.ZkClient-EventThread-91-127.0.0.1:2181 - INFO  - Starting ZkClient event thread.
+ [2018-06-13 20:21:13] ZooKeeper.main - INFO  - Initiating client connection, connectString=127.0.0.1:2181 sessionTimeout=2147483647 watcher=org.I0Itec.zkclient.ZkClient@36d64342
+ [2018-06-13 20:21:13] ZkClient.main - INFO  - Waiting for keeper state SyncConnected
+ [2018-06-13 20:21:13] ClientCnxn.main-SendThread(127.0.0.1:2181) - INFO  - Opening socket connection to server 127.0.0.1/127.0.0.1:2181. Will not attempt to authenticate using SASL (unknown error)
+ [2018-06-13 20:21:13] ClientCnxn.main-SendThread(127.0.0.1:2181) - INFO  - Socket connection established to 127.0.0.1/127.0.0.1:2181, initiating session
+ [2018-06-13 20:21:13] ClientCnxn.main-SendThread(127.0.0.1:2181) - INFO  - Session establishment complete on server 127.0.0.1/127.0.0.1:2181, sessionid = 0x100068bf6af0031, negotiated timeout = 40000
+ [2018-06-13 20:21:13] ZkClient.main-EventThread - INFO  - zookeeper state changed (SyncConnected)
+ [2018-06-13 20:21:13] ZooKeeper.main - INFO  - Initiating client connection, connectString=127.0.0.1:2181 sessionTimeout=30000 watcher=org.I0Itec.zkclient.ZkClient@39ba5a14
+ [2018-06-13 20:21:13] ZkEventThread.ZkClient-EventThread-94-127.0.0.1:2181 - INFO  - Starting ZkClient event thread.
+ [2018-06-13 20:21:13] ZkClient.main - INFO  - Waiting for keeper state SyncConnected
+ [2018-06-13 20:21:13] ClientCnxn.main-SendThread(127.0.0.1:2181) - INFO  - Opening socket connection to server 127.0.0.1/127.0.0.1:2181. Will not attempt to authenticate using SASL (unknown error)
+ [2018-06-13 20:21:13] ClientCnxn.main-SendThread(127.0.0.1:2181) - INFO  - Socket connection established to 127.0.0.1/127.0.0.1:2181, initiating session
+ [2018-06-13 20:21:13] ClientCnxn.main-SendThread(127.0.0.1:2181) - INFO  - Session establishment complete on server 127.0.0.1/127.0.0.1:2181, sessionid = 0x100068bf6af0032, negotiated timeout = 30000
+ [2018-06-13 20:21:13] ZkClient.main-EventThread - INFO  - zookeeper state changed (SyncConnected)
+ [2018-06-13 20:21:13] ZooKeeper.main - INFO  - Initiating client connection, connectString=127.0.0.1:2181 sessionTimeout=2147483647 watcher=org.I0Itec.zkclient.ZkClient@511baa65
+ [2018-06-13 20:21:13] ZkEventThread.ZkClient-EventThread-97-127.0.0.1:2181 - INFO  - Starting ZkClient event thread.
+ [2018-06-13 20:21:13] ZkClient.main - INFO  - Waiting for keeper state SyncConnected
+ [2018-06-13 20:21:13] ClientCnxn.main-SendThread(127.0.0.1:2181) - INFO  - Opening socket connection to server 127.0.0.1/127.0.0.1:2181. Will not attempt to authenticate using SASL (unknown error)
+ [2018-06-13 20:21:13] ClientCnxn.main-SendThread(127.0.0.1:2181) - INFO  - Socket connection established to 127.0.0.1/127.0.0.1:2181, initiating session
+ [2018-06-13 20:21:13] ClientCnxn.main-SendThread(127.0.0.1:2181) - INFO  - Session establishment complete on server 127.0.0.1/127.0.0.1:2181, sessionid = 0x100068bf6af0033, negotiated timeout = 40000
+ [2018-06-13 20:21:13] ZkClient.main-EventThread - INFO  - zookeeper state changed (SyncConnected)
+ [2018-06-13 20:21:13] ZooKeeper.main - INFO  - Initiating client connection, connectString=127.0.0.1:2181 sessionTimeout=30000 watcher=org.I0Itec.zkclient.ZkClient@340f438e
+ [2018-06-13 20:21:13] ZkEventThread.ZkClient-EventThread-100-127.0.0.1:2181 - INFO  - Starting ZkClient event thread.
+ [2018-06-13 20:21:13] ZkClient.main - INFO  - Waiting for keeper state SyncConnected
+ [2018-06-13 20:21:13] ClientCnxn.main-SendThread(127.0.0.1:2181) - INFO  - Opening socket connection to server 127.0.0.1/127.0.0.1:2181. Will not attempt to authenticate using SASL (unknown error)
+ [2018-06-13 20:21:13] ClientCnxn.main-SendThread(127.0.0.1:2181) - INFO  - Socket connection established to 127.0.0.1/127.0.0.1:2181, initiating session
+ [2018-06-13 20:21:13] ClientCnxn.main-SendThread(127.0.0.1:2181) - INFO  - Session establishment complete on server 127.0.0.1/127.0.0.1:2181, sessionid = 0x100068bf6af0034, negotiated timeout = 30000
+ [2018-06-13 20:21:13] ZkClient.main-EventThread - INFO  - zookeeper state changed (SyncConnected)
+ [2018-06-13 20:21:13] ZooKeeper.main - INFO  - Initiating client connection, connectString=127.0.0.1:2181 sessionTimeout=2147483647 watcher=org.I0Itec.zkclient.ZkClient@30c7da1e
+ [2018-06-13 20:21:13] ZkEventThread.ZkClient-EventThread-103-127.0.0.1:2181 - INFO  - Starting ZkClient event thread.
+ [2018-06-13 20:21:13] ZkClient.main - INFO  - Waiting for keeper state SyncConnected
+ [2018-06-13 20:21:13] ClientCnxn.main-SendThread(127.0.0.1:2181) - INFO  - Opening socket connection to server 127.0.0.1/127.0.0.1:2181. Will not attempt to authenticate using SASL (unknown error)
+ [2018-06-13 20:21:13] ClientCnxn.main-SendThread(127.0.0.1:2181) - INFO  - Socket connection established to 127.0.0.1/127.0.0.1:2181, initiating session
+ [2018-06-13 20:21:13] ClientCnxn.main-SendThread(127.0.0.1:2181) - INFO  - Session establishment complete on server 127.0.0.1/127.0.0.1:2181, sessionid = 0x100068bf6af0035, negotiated timeout = 40000
+ [2018-06-13 20:21:13] ZkClient.main-EventThread - INFO  - zookeeper state changed (SyncConnected)
+ [2018-06-13 20:21:13] ZooKeeper.main - INFO  - Initiating client connection, connectString=127.0.0.1:2181 sessionTimeout=30000 watcher=org.I0Itec.zkclient.ZkClient@5b464ce8
+ [2018-06-13 20:21:13] ZkEventThread.ZkClient-EventThread-106-127.0.0.1:2181 - INFO  - Starting ZkClient event thread.
+ [2018-06-13 20:21:13] ZkClient.main - INFO  - Waiting for keeper state SyncConnected
+ [2018-06-13 20:21:13] ClientCnxn.main-SendThread(127.0.0.1:2181) - INFO  - Opening socket connection to server 127.0.0.1/127.0.0.1:2181. Will not attempt to authenticate using SASL (unknown error)
+ [2018-06-13 20:21:13] ClientCnxn.main-SendThread(127.0.0.1:2181) - INFO  - Socket connection established to 127.0.0.1/127.0.0.1:2181, initiating session
+ [2018-06-13 20:21:13] ClientCnxn.main-SendThread(127.0.0.1:2181) - INFO  - Session establishment complete on server 127.0.0.1/127.0.0.1:2181, sessionid = 0x100068bf6af0036, negotiated timeout = 30000
+ [2018-06-13 20:21:13] ZkClient.main-EventThread - INFO  - zookeeper state changed (SyncConnected)
+ [2018-06-13 20:21:13] ZkEventThread.ZkClient-EventThread-109-127.0.0.1:2181 - INFO  - Starting ZkClient event thread.
+ [2018-06-13 20:21:13] ZooKeeper.main - INFO  - Initiating client connection, connectString=127.0.0.1:2181 sessionTimeout=2147483647 watcher=org.I0Itec.zkclient.ZkClient@57829d67
+ [2018-06-13 20:21:13] ClientCnxn.main-SendThread(127.0.0.1:2181) - INFO  - Opening socket connection to server 127.0.0.1/127.0.0.1:2181. Will not attempt to authenticate using SASL (unknown error)
+ [2018-06-13 20:21:13] ClientCnxn.main-SendThread(127.0.0.1:2181) - INFO  - Socket connection established to 127.0.0.1/127.0.0.1:2181, initiating session
+ [2018-06-13 20:21:13] ZkClient.main - INFO  - Waiting for keeper state SyncConnected
+ [2018-06-13 20:21:13] ClientCnxn.main-SendThread(127.0.0.1:2181) - INFO  - Session establishment complete on server 127.0.0.1/127.0.0.1:2181, sessionid = 0x100068bf6af0037, negotiated timeout = 40000
+ [2018-06-13 20:21:13] ZkClient.main-EventThread - INFO  - zookeeper state changed (SyncConnected)
+ [2018-06-13 20:21:13] ZkEventThread.ZkClient-EventThread-112-127.0.0.1:2181 - INFO  - Starting ZkClient event thread.
+ [2018-06-13 20:21:13] ZooKeeper.main - INFO  - Initiating client connection, connectString=127.0.0.1:2181 sessionTimeout=30000 watcher=org.I0Itec.zkclient.ZkClient@19dfb72a
+ [2018-06-13 20:21:13] ZkClient.main - INFO  - Waiting for keeper state SyncConnected
+ [2018-06-13 20:21:13] ClientCnxn.main-SendThread(127.0.0.1:2181) - INFO  - Opening socket connection to server 127.0.0.1/127.0.0.1:2181. Will not attempt to authenticate using SASL (unknown error)
+ [2018-06-13 20:21:13] ClientCnxn.main-SendThread(127.0.0.1:2181) - INFO  - Socket connection established to 127.0.0.1/127.0.0.1:2181, initiating session
+ [2018-06-13 20:21:13] ClientCnxn.main-SendThread(127.0.0.1:2181) - INFO  - Session establishment complete on server 127.0.0.1/127.0.0.1:2181, sessionid = 0x100068bf6af0038, negotiated timeout = 30000
+ [2018-06-13 20:21:13] ZkClient.main-EventThread - INFO  - zookeeper state changed (SyncConnected)
+ [2018-06-13 20:21:13] ZkEventThread.ZkClient-EventThread-115-127.0.0.1:2181 - INFO  - Starting ZkClient event thread.
+ [2018-06-13 20:21:13] ZooKeeper.main - INFO  - Initiating client connection, connectString=127.0.0.1:2181 sessionTimeout=2147483647 watcher=org.I0Itec.zkclient.ZkClient@17c68925
+ [2018-06-13 20:21:13] ClientCnxn.main-SendThread(127.0.0.1:2181) - INFO  - Opening socket connection to server 127.0.0.1/127.0.0.1:2181. Will not attempt to authenticate using SASL (unknown error)
+ [2018-06-13 20:21:13] ClientCnxn.main-SendThread(127.0.0.1:2181) - INFO  - Socket connection established to 127.0.0.1/127.0.0.1:2181, initiating session
+ [2018-06-13 20:21:13] ZkClient.main - INFO  - Waiting for keeper state SyncConnected
+ [2018-06-13 20:21:13] ClientCnxn.main-SendThread(127.0.0.1:2181) - INFO  - Session establishment complete on server 127.0.0.1/127.0.0.1:2181, sessionid = 0x100068bf6af0039, negotiated timeout = 40000
+ [2018-06-13 20:21:13] ZkClient.main-EventThread - INFO  - zookeeper state changed (SyncConnected)
+ [2018-06-13 20:21:13] ZooKeeper.main - INFO  - Initiating client connection, connectString=127.0.0.1:2181 sessionTimeout=30000 watcher=org.I0Itec.zkclient.ZkClient@7e0ea639
+ [2018-06-13 20:21:13] ZkEventThread.ZkClient-EventThread-118-127.0.0.1:2181 - INFO  - Starting ZkClient event thread.
+ [2018-06-13 20:21:13] ClientCnxn.main-SendThread(127.0.0.1:2181) - INFO  - Opening socket connection to server 127.0.0.1/127.0.0.1:2181. Will not attempt to authenticate using SASL (unknown error)
+ [2018-06-13 20:21:13] ZkClient.main - INFO  - Waiting for keeper state SyncConnected
+ [2018-06-13 20:21:13] ClientCnxn.main-SendThread(127.0.0.1:2181) - INFO  - Socket connection established to 127.0.0.1/127.0.0.1:2181, initiating session
+ [2018-06-13 20:21:13] ClientCnxn.main-SendThread(127.0.0.1:2181) - INFO  - Session establishment complete on server 127.0.0.1/127.0.0.1:2181, sessionid = 0x100068bf6af003a, negotiated timeout = 30000
+ [2018-06-13 20:21:13] ZkClient.main-EventThread - INFO  - zookeeper state changed (SyncConnected)
+ [2018-06-13 20:21:13] ZooKeeper.main - INFO  - Initiating client connection, connectString=127.0.0.1:2181 sessionTimeout=2147483647 watcher=org.I0Itec.zkclient.ZkClient@3d24753a
+ [2018-06-13 20:21:13] ZkEventThread.ZkClient-EventThread-121-127.0.0.1:2181 - INFO  - Starting ZkClient event thread.
+ [2018-06-13 20:21:13] ZkClient.main - INFO  - Waiting for keeper state SyncConnected
+ [2018-06-13 20:21:13] ClientCnxn.main-SendThread(127.0.0.1:2181) - INFO  - Opening socket connection to server 127.0.0.1/127.0.0.1:2181. Will not attempt to authenticate using SASL (unknown error)
+ [2018-06-13 20:21:13] ClientCnxn.main-SendThread(127.0.0.1:2181) - INFO  - Socket connection established to 127.0.0.1/127.0.0.1:2181, initiating session
+ [2018-06-13 20:21:13] ClientCnxn.main-SendThread(127.0.0.1:2181) - INFO  - Session establishment complete on server 127.0.0.1/127.0.0.1:2181, sessionid = 0x100068bf6af003b, negotiated timeout = 40000
+ [2018-06-13 20:21:13] ZkClient.main-EventThread - INFO  - zookeeper state changed (SyncConnected)
+ [2018-06-13 20:21:13] ZooKeeper.main - INFO  - Initiating client connection, connectString=127.0.0.1:2181 sessionTimeout=30000 watcher=org.I0Itec.zkclient.ZkClient@59a6e353
+ [2018-06-13 20:21:13] ZkEventThread.ZkClient-EventThread-124-127.0.0.1:2181 - INFO  - Starting ZkClient event thread.
+ [2018-06-13 20:21:13] ZkClient.main - INFO  - Waiting for keeper state SyncConnected
+ [2018-06-13 20:21:13] ClientCnxn.main-SendThread(127.0.0.1:2181) - INFO  - Opening socket connection to server 127.0.0.1/127.0.0.1:2181. Will not attempt to authenticate using SASL (unknown error)
+ [2018-06-13 20:21:13] ClientCnxn.main-SendThread(127.0.0.1:2181) - INFO  - Socket connection established to 127.0.0.1/127.0.0.1:2181, initiating session
+ [2018-06-13 20:21:13] ClientCnxn.main-SendThread(127.0.0.1:2181) - INFO  - Session establishment complete on server 127.0.0.1/127.0.0.1:2181, sessionid = 0x100068bf6af003c, negotiated timeout = 30000
+ [2018-06-13 20:21:13] ZkClient.main-EventThread - INFO  - zookeeper state changed (SyncConnected)
+ [2018-06-13 20:21:13] ZooKeeper.main - INFO  - Initiating client connection, connectString=127.0.0.1:2181 sessionTimeout=2147483647 watcher=org.I0Itec.zkclient.ZkClient@7a0ac6e3
+ [2018-06-13 20:21:13] ZkEventThread.ZkClient-EventThread-127-127.0.0.1:2181 - INFO  - Starting ZkClient event thread.
+ [2018-06-13 20:21:13] ZkClient.main - INFO  - Waiting for keeper state SyncConnected
+ [2018-06-13 20:21:13] ClientCnxn.main-SendThread(127.0.0.1:2181) - INFO  - Opening socket connection to server 127.0.0.1/127.0.0.1:2181. Will not attempt to authenticate using SASL (unknown error)
+ [2018-06-13 20:21:13] ClientCnxn.main-SendThread(127.0.0.1:2181) - INFO  - Socket connection established to 127.0.0.1/127.0.0.1:2181, initiating session
+ [2018-06-13 20:21:13] ClientCnxn.main-SendThread(127.0.0.1:2181) - INFO  - Session establishment complete on server 127.0.0.1/127.0.0.1:2181, sessionid = 0x100068bf6af003d, negotiated timeout = 40000
+ [2018-06-13 20:21:13] ZkClient.main-EventThread - INFO  - zookeeper state changed (SyncConnected)
+ [2018-06-13 20:21:13] ZooKeeper.main - INFO  - Initiating client connection, connectString=127.0.0.1:2181 sessionTimeout=30000 watcher=org.I0Itec.zkclient.ZkClient@71be98f5
+ [2018-06-13 20:21:13] ZkEventThread.ZkClient-EventThread-130-127.0.0.1:2181 - INFO  - Starting ZkClient event thread.
+ [2018-06-13 20:21:13] ZkClient.main - INFO  - Waiting for keeper state SyncConnected
+ [2018-06-13 20:21:13] ClientCnxn.main-SendThread(127.0.0.1:2181) - INFO  - Opening socket connection to server 127.0.0.1/127.0.0.1:2181. Will not attempt to authenticate using SASL (unknown error)
+ [2018-06-13 20:21:13] ClientCnxn.main-SendThread(127.0.0.1:2181) - INFO  - Socket connection established to 127.0.0.1/127.0.0.1:2181, initiating session
+ [2018-06-13 20:21:13] ClientCnxn.main-SendThread(127.0.0.1:2181) - INFO  - Session establishment complete on server 127.0.0.1/127.0.0.1:2181, sessionid = 0x100068bf6af003e, negotiated timeout = 30000
+ [2018-06-13 20:21:13] ZkClient.main-EventThread - INFO  - zookeeper state changed (SyncConnected)
+ [2018-06-13 20:21:13] ZooKeeper.main - INFO  - Initiating client connection, connectString=127.0.0.1:2181 sessionTimeout=2147483647 watcher=org.I0Itec.zkclient.ZkClient@6fadae5d
+ [2018-06-13 20:21:13] ZkEventThread.ZkClient-EventThread-133-127.0.0.1:2181 - INFO  - Starting ZkClient event thread.
+ [2018-06-13 20:21:13] ZkClient.main - INFO  - Waiting for keeper state SyncConnected
+ [2018-06-13 20:21:13] ClientCnxn.main-SendThread(127.0.0.1:2181) - INFO  - Opening socket connection to server 127.0.0.1/127.0.0.1:2181. Will not attempt to authenticate using SASL (unknown error)
+ [2018-06-13 20:21:13] ClientCnxn.main-SendThread(127.0.0.1:2181) - INFO  - Socket connection established to 127.0.0.1/127.0.0.1:2181, initiating session
+ [2018-06-13 20:21:13] ClientCnxn.main-SendThread(127.0.0.1:2181) - INFO  - Session establishment complete on server 127.0.0.1/127.0.0.1:2181, sessionid = 0x100068bf6af003f, negotiated timeout = 40000
+ [2018-06-13 20:21:13] ZkClient.main-EventThread - INFO  - zookeeper state changed (SyncConnected)
+ [2018-06-13 20:21:13] ZooKeeper.main - INFO  - Initiating client connection, connectString=127.0.0.1:2181 sessionTimeout=30000 watcher=org.I0Itec.zkclient.ZkClient@17f6480
+ [2018-06-13 20:21:13] ZkEventThread.ZkClient-EventThread-136-127.0.0.1:2181 - INFO  - Starting ZkClient event thread.
+ [2018-06-13 20:21:13] ZkClient.main - INFO  - Waiting for keeper state SyncConnected
+ [2018-06-13 20:21:13] ClientCnxn.main-SendThread(127.0.0.1:2181) - INFO  - Opening socket connection to server 127.0.0.1/127.0.0.1:2181. Will not attempt to authenticate using SASL (unknown error)
+ [2018-06-13 20:21:13] ClientCnxn.main-SendThread(127.0.0.1:2181) - INFO  - Socket connection established to 127.0.0.1/127.0.0.1:2181, initiating session
+ [2018-06-13 20:21:13] ClientCnxn.main-SendThread(127.0.0.1:2181) - INFO  - Session establishment complete on server 127.0.0.1/127.0.0.1:2181, sessionid = 0x100068bf6af0040, negotiated timeout = 30000
+ [2018-06-13 20:21:13] ZkClient.main-EventThread - INFO  - zookeeper state changed (SyncConnected)
+ [2018-06-13 20:21:13] ZooKeeper.main - INFO  - Initiating client connection, connectString=127.0.0.1:2181 sessionTimeout=2147483647 watcher=org.I0Itec.zkclient.ZkClient@2d6e8792
+ [2018-06-13 20:21:13] ZkEventThread.ZkClient-EventThread-139-127.0.0.1:2181 - INFO  - Starting ZkClient event thread.
+ [2018-06-13 20:21:13] ZkClient.main - INFO  - Waiting for keeper state SyncConnected
+ [2018-06-13 20:21:13] ClientCnxn.main-SendThread(127.0.0.1:2181) - INFO  - Opening socket connection to server 127.0.0.1/127.0.0.1:2181. Will not attempt to authenticate using SASL (unknown error)
+ [2018-06-13 20:21:13] ClientCnxn.main-SendThread(127.0.0.1:2181) - INFO  - Socket connection established to 127.0.0.1/127.0.0.1:2181, initiating session
+ [2018-06-13 20:21:13] ClientCnxn.main-SendThread(127.0.0.1:2181) - INFO  - Session establishment complete on server 127.0.0.1/127.0.0.1:2181, sessionid = 0x100068bf6af0041, negotiated timeout = 40000
+ [2018-06-13 20:21:13] ZkClient.main-EventThread - INFO  - zookeeper state changed (SyncConnected)
+ [2018-06-13 20:21:13] ZooKeeper.main - INFO  - Initiating client connection, connectString=127.0.0.1:2181 sessionTimeout=30000 watcher=org.I0Itec.zkclient.ZkClient@2812cbfa
+ [2018-06-13 20:21:13] ZkEventThread.ZkClient-EventThread-142-127.0.0.1:2181 - INFO  - Starting ZkClient event thread.
+ [2018-06-13 20:21:13] ZkClient.main - INFO  - Waiting for keeper state SyncConnected
+ [2018-06-13 20:21:13] ClientCnxn.main-SendThread(127.0.0.1:2181) - INFO  - Opening socket connection to server 127.0.0.1/127.0.0.1:2181. Will not attempt to authenticate using SASL (unknown error)
+ [2018-06-13 20:21:13] ClientCnxn.main-SendThread(127.0.0.1:2181) - INFO  - Socket connection established to 127.0.0.1/127.0.0.1:2181, initiating session
+ [2018-06-13 20:21:13] ClientCnxn.main-SendThread(127.0.0.1:2181) - INFO  - Session establishment complete on server 127.0.0.1/127.0.0.1:2181, sessionid = 0x100068bf6af0042, negotiated timeout = 30000
+ [2018-06-13 20:21:13] ZkClient.main-EventThread - INFO  - zookeeper state changed (SyncConnected)
+ [2018-06-13 20:21:13] ZooKeeper.main - INFO  - Initiating client connection, connectString=127.0.0.1:2181 sessionTimeout=2147483647 watcher=org.I0Itec.zkclient.ZkClient@2acf57e3
+ [2018-06-13 20:21:13] ZkEventThread.ZkClient-EventThread-145-127.0.0.1:2181 - INFO  - Starting ZkClient event thread.
+ [2018-06-13 20:21:13] ZkClient.main - INFO  - Waiting for keeper state SyncConnected
+ [2018-06-13 20:21:13] ClientCnxn.main-SendThread(127.0.0.1:2181) - INFO  - Opening socket connection to server 127.0.0.1/127.0.0.1:2181. Will not attempt to authenticate using SASL (unknown error)
+ [2018-06-13 20:21:13] ClientCnxn.main-SendThread(127.0.0.1:2181) - INFO  - Socket connection established to 127.0.0.1/127.0.0.1:2181, initiating session
+ [2018-06-13 20:21:13] ClientCnxn.main-SendThread(127.0.0.1:2181) - INFO  - Session establishment complete on server 127.0.0.1/127.0.0.1:2181, sessionid = 0x100068bf6af0043, negotiated timeout = 40000
+ [2018-06-13 20:21:13] ZkClient.main-EventThread - INFO  - zookeeper state changed (SyncConnected)
+ [2018-06-13 20:21:13] ZooKeeper.main - INFO  - Initiating client connection, connectString=127.0.0.1:2181 sessionTimeout=30000 watcher=org.I0Itec.zkclient.ZkClient@506e6d5e
+ [2018-06-13 20:21:13] ZkEventThread.ZkClient-EventThread-148-127.0.0.1:2181 - INFO  - Starting ZkClient event thread.
+ [2018-06-13 20:21:13] ZkClient.main - INFO  - Waiting for keeper state SyncConnected
+ [2018-06-13 20:21:13] ClientCnxn.main-SendThread(127.0.0.1:2181) - INFO  - Opening socket connection to server 127.0.0.1/127.0.0.1:2181. Will not attempt to authenticate using SASL (unknown error)
+ [2018-06-13 20:21:13] ClientCnxn.main-SendThread(127.0.0.1:2181) - INFO  - Socket connection established to 127.0.0.1/127.0.0.1:2181, initiating session
+ [2018-06-13 20:21:13] ClientCnxn.main-SendThread(127.0.0.1:2181) - INFO  - Session establishment complete on server 127.0.0.1/127.0.0.1:2181, sessionid = 0x100068bf6af0044, negotiated timeout = 30000
+ [2018-06-13 20:21:13] ZkClient.main-EventThread - INFO  - zookeeper state changed (SyncConnected)
+ [2018-06-13 20:21:13] ZooKeeper.main - INFO  - Initiating client connection, connectString=127.0.0.1:2181 sessionTimeout=2147483647 watcher=org.I0Itec.zkclient.ZkClient@96532d6
+ [2018-06-13 20:21:13] ZkEventThread.ZkClient-EventThread-151-127.0.0.1:2181 - INFO  - Starting ZkClient event thread.
+ [2018-06-13 20:21:13] ZkClient.main - INFO  - Waiting for keeper state SyncConnected
+ [2018-06-13 20:21:13] ClientCnxn.main-SendThread(127.0.0.1:2181) - INFO  - Opening socket connection to server 127.0.0.1/127.0.0.1:2181. Will not attempt to authenticate using SASL (unknown error)
+ [2018-06-13 20:21:13] ClientCnxn.main-SendThread(127.0.0.1:2181) - INFO  - Socket connection established to 127.0.0.1/127.0.0.1:2181, initiating session
+ [2018-06-13 20:21:13] ClientCnxn.main-SendThread(127.0.0.1:2181) - INFO  - Session establishment complete on server 127.0.0.1/127.0.0.1:2181, sessionid = 0x100068bf6af0045, negotiated timeout = 40000
+ [2018-06-13 20:21:13] ZkClient.main-EventThread - INFO  - zookeeper state changed (SyncConnected)
+ [2018-06-13 20:21:13] ZooKeeper.main - INFO  - Initiating client connection, connectString=127.0.0.1:2181 sessionTimeout=30000 watcher=org.I0Itec.zkclient.ZkClient@3796751b
+ [2018-06-13 20:21:13] ZkEventThread.ZkClient-EventThread-154-127.0.0.1:2181 - INFO  - Starting ZkClient event thread.
+ [2018-06-13 20:21:13] ClientCnxn.main-SendThread(127.0.0.1:2181) - INFO  - Opening socket connection to server 127.0.0.1/127.0.0.1:2181. Will not attempt to authenticate using SASL (unknown error)
+ [2018-06-13 20:21:13] ZkClient.main - INFO  - Waiting for keeper state SyncConnected
+ [2018-06-13 20:21:13] ClientCnxn.main-SendThread(127.0.0.1:2181) - INFO  - Socket connection established to 127.0.0.1/127.0.0.1:2181, initiating session
+ [2018-06-13 20:21:13] ClientCnxn.main-SendThread(127.0.0.1:2181) - INFO  - Session establishment complete on server 127.0.0.1/127.0.0.1:2181, sessionid = 0x100068bf6af0046, negotiated timeout = 30000
+ [2018-06-13 20:21:13] ZkClient.main-EventThread - INFO  - zookeeper state changed (SyncConnected)
+ [2018-06-13 20:21:13] ZooKeeper.main - INFO  - Initiating client connection, connectString=127.0.0.1:2181 sessionTimeout=2147483647 watcher=org.I0Itec.zkclient.ZkClient@67b64c45
+ [2018-06-13 20:21:13] ZkEventThread.ZkClient-EventThread-157-127.0.0.1:2181 - INFO  - Starting ZkClient event thread.
+ [2018-06-13 20:21:13] ClientCnxn.main-SendThread(127.0.0.1:2181) - INFO  - Opening socket connection to server 127.0.0.1/127.0.0.1:2181. Will not attempt to authenticate using SASL (unknown error)
+ [2018-06-13 20:21:13] ZkClient.main - INFO  - Waiting for keeper state SyncConnected
+ [2018-06-13 20:21:13] ClientCnxn.main-SendThread(127.0.0.1:2181) - INFO  - Socket connection established to 127.0.0.1/127.0.0.1:2181, initiating session
+ [2018-06-13 20:21:13] ClientCnxn.main-SendThread(127.0.0.1:2181) - INFO  - Session establishment complete on server 127.0.0.1/127.0.0.1:2181, sessionid = 0x100068bf6af0047, negotiated timeout = 40000
+ [2018-06-13 20:21:13] ZkClient.main-EventThread - INFO  - zookeeper state changed (SyncConnected)
+ [2018-06-13 20:21:13] ZkEventThread.ZkClient-EventThread-160-null - INFO  - Starting ZkClient event thread.
+ [2018-06-13 20:21:13] ZooKeeper.main - INFO  - Initiating client connection, connectString=null sessionTimeout=30000 watcher=org.I0Itec.zkclient.ZkClient@4411d970
+ [2018-06-13 20:21:13] ZkEventThread.ZkClient-EventThread-160-null - INFO  - Terminate ZkClient event thread.
+ [2018-06-13 20:21:13] ZKPoolUtils.main - ERROR - 
+ [2018-06-13 20:21:13] ZkEventThread.ZkClient-EventThread-161-null - INFO  - Starting ZkClient event thread.
+ [2018-06-13 20:21:13] ZooKeeper.main - INFO  - Initiating client connection, connectString=null sessionTimeout=30000 watcher=org.I0Itec.zkclient.ZkClient@6442b0a6
+ [2018-06-13 20:21:13] ZkEventThread.ZkClient-EventThread-161-null - INFO  - Terminate ZkClient event thread.
+ [2018-06-13 20:21:13] ZKPoolUtils.main - ERROR - 
+ [2018-06-13 20:21:13] ZkEventThread.ZkClient-EventThread-162-null - INFO  - Starting ZkClient event thread.
+ [2018-06-13 20:21:13] ZooKeeper.main - INFO  - Initiating client connection, connectString=null sessionTimeout=30000 watcher=org.I0Itec.zkclient.ZkClient@60f82f98
+ [2018-06-13 20:21:13] ZkEventThread.ZkClient-EventThread-162-null - INFO  - Terminate ZkClient event thread.
+ [2018-06-13 20:21:13] ZKPoolUtils.main - ERROR - 
+ [2018-06-13 20:21:13] ZooKeeper.main - INFO  - Initiating client connection, connectString=null sessionTimeout=30000 watcher=org.I0Itec.zkclient.ZkClient@35f983a6
+ [2018-06-13 20:21:13] ZkEventThread.ZkClient-EventThread-163-null - INFO  - Starting ZkClient event thread.
+ [2018-06-13 20:21:13] ZKPoolUtils.main - ERROR - 
+ [2018-06-13 20:21:13] ZooKeeper.main - INFO  - Initiating client connection, connectString=null sessionTimeout=30000 watcher=org.I0Itec.zkclient.ZkClient@7f690630
+ [2018-06-13 20:21:13] ZkEventThread.ZkClient-EventThread-164-null - INFO  - Starting ZkClient event thread.
+ [2018-06-13 20:21:13] ZKPoolUtils.main - ERROR - 
+ [2018-06-13 20:21:13] ZooKeeper.main - INFO  - Initiating client connection, connectString=null sessionTimeout=30000 watcher=org.I0Itec.zkclient.ZkClient@edf4efb
+ [2018-06-13 20:21:13] ZkEventThread.ZkClient-EventThread-165-null - INFO  - Starting ZkClient event thread.
+ [2018-06-13 20:21:13] ZkEventThread.ZkClient-EventThread-165-null - INFO  - Terminate ZkClient event thread.
+ [2018-06-13 20:21:13] ZKPoolUtils.main - ERROR - 
+ [2018-06-13 20:21:13] ZkEventThread.ZkClient-EventThread-166-null - INFO  - Starting ZkClient event thread.
+ [2018-06-13 20:21:13] ZooKeeper.main - INFO  - Initiating client connection, connectString=null sessionTimeout=30000 watcher=org.I0Itec.zkclient.ZkClient@2f7a2457
+ [2018-06-13 20:21:13] ZkEventThread.ZkClient-EventThread-166-null - INFO  - Terminate ZkClient event thread.
+ [2018-06-13 20:21:13] ZKPoolUtils.main - ERROR - 
+ [2018-06-13 20:21:13] ZkEventThread.ZkClient-EventThread-167-null - INFO  - Starting ZkClient event thread.
+ [2018-06-13 20:21:13] ZooKeeper.main - INFO  - Initiating client connection, connectString=null sessionTimeout=30000 watcher=org.I0Itec.zkclient.ZkClient@566776ad
+ [2018-06-13 20:21:13] ZkEventThread.ZkClient-EventThread-167-null - INFO  - Terminate ZkClient event thread.
+ [2018-06-13 20:21:13] ZKPoolUtils.main - ERROR - 
+ [2018-06-13 20:21:13] ZooKeeper.main - INFO  - Initiating client connection, connectString=null sessionTimeout=30000 watcher=org.I0Itec.zkclient.ZkClient@6108b2d7
+ [2018-06-13 20:21:13] ZkEventThread.ZkClient-EventThread-168-null - INFO  - Starting ZkClient event thread.
+ [2018-06-13 20:21:13] ZKPoolUtils.main - ERROR - 
+ [2018-06-13 20:21:13] ZooKeeper.main - INFO  - Initiating client connection, connectString=null sessionTimeout=30000 watcher=org.I0Itec.zkclient.ZkClient@1554909b
+ [2018-06-13 20:21:13] ZkEventThread.ZkClient-EventThread-169-null - INFO  - Starting ZkClient event thread.
+ [2018-06-13 20:21:13] ZkEventThread.ZkClient-EventThread-169-null - INFO  - Terminate ZkClient event thread.
+ [2018-06-13 20:21:13] ZKPoolUtils.main - ERROR - 
+ [2018-06-13 20:21:13] ZooKeeper.main - INFO  - Initiating client connection, connectString=null sessionTimeout=30000 watcher=org.I0Itec.zkclient.ZkClient@6bf256fa
+ [2018-06-13 20:21:13] ZkEventThread.ZkClient-EventThread-170-null - INFO  - Starting ZkClient event thread.
+ [2018-06-13 20:21:13] ZkEventThread.ZkClient-EventThread-170-null - INFO  - Terminate ZkClient event thread.
+ [2018-06-13 20:21:13] ZKPoolUtils.main - ERROR - 
+ [2018-06-13 20:21:13] ZkEventThread.ZkClient-EventThread-171-null - INFO  - Starting ZkClient event thread.
+ [2018-06-13 20:21:13] ZooKeeper.main - INFO  - Initiating client connection, connectString=null sessionTimeout=30000 watcher=org.I0Itec.zkclient.ZkClient@6cd8737
+ [2018-06-13 20:21:13] ZkEventThread.ZkClient-EventThread-171-null - INFO  - Terminate ZkClient event thread.
+ [2018-06-13 20:21:13] ZKPoolUtils.main - ERROR - 
+ [2018-06-13 20:21:13] ZooKeeper.main - INFO  - Initiating client connection, connectString=null sessionTimeout=30000 watcher=org.I0Itec.zkclient.ZkClient@22f71333
+ [2018-06-13 20:21:13] ZkEventThread.ZkClient-EventThread-172-null - INFO  - Starting ZkClient event thread.
+ [2018-06-13 20:21:13] ZkEventThread.ZkClient-EventThread-172-null - INFO  - Terminate ZkClient event thread.
+ [2018-06-13 20:21:13] ZKPoolUtils.main - ERROR - 
+ [2018-06-13 20:21:13] ZooKeeper.main - INFO  - Initiating client connection, connectString=null sessionTimeout=30000 watcher=org.I0Itec.zkclient.ZkClient@13969fbe
+ [2018-06-13 20:21:13] ZkEventThread.ZkClient-EventThread-173-null - INFO  - Starting ZkClient event thread.
+ [2018-06-13 20:21:13] ZkEventThread.ZkClient-EventThread-173-null - INFO  - Terminate ZkClient event thread.
+ [2018-06-13 20:21:13] ZKPoolUtils.main - ERROR - 
+ [2018-06-13 20:21:13] ZooKeeper.main - INFO  - Initiating client connection, connectString=null sessionTimeout=30000 watcher=org.I0Itec.zkclient.ZkClient@6aaa5eb0
+ [2018-06-13 20:21:13] ZkEventThread.ZkClient-EventThread-174-null - INFO  - Starting ZkClient event thread.
+ [2018-06-13 20:21:13] ZKPoolUtils.main - ERROR - 
+ [2018-06-13 20:21:13] ZooKeeper.main - INFO  - Initiating client connection, connectString=null sessionTimeout=30000 watcher=org.I0Itec.zkclient.ZkClient@3498ed
+ [2018-06-13 20:21:13] ZkEventThread.ZkClient-EventThread-175-null - INFO  - Starting ZkClient event thread.
+ [2018-06-13 20:21:13] ZkEventThread.ZkClient-EventThread-175-null - INFO  - Terminate ZkClient event thread.
+ [2018-06-13 20:21:13] ZKPoolUtils.main - ERROR - 
+ [2018-06-13 20:21:13] ZooKeeper.main - INFO  - Initiating client connection, connectString=null sessionTimeout=30000 watcher=org.I0Itec.zkclient.ZkClient@1a407d53
+ [2018-06-13 20:21:13] ZkEventThread.ZkClient-EventThread-176-null - INFO  - Starting ZkClient event thread.
+ [2018-06-13 20:21:13] ZkEventThread.ZkClient-EventThread-176-null - INFO  - Terminate ZkClient event thread.
+ [2018-06-13 20:21:13] ZKPoolUtils.main - ERROR - 
+ [2018-06-13 20:21:13] ZooKeeper.main - INFO  - Initiating client connection, connectString=null sessionTimeout=30000 watcher=org.I0Itec.zkclient.ZkClient@3d8c7aca
+ [2018-06-13 20:21:13] ZkEventThread.ZkClient-EventThread-177-null - INFO  - Starting ZkClient event thread.
+ [2018-06-13 20:21:13] ZkEventThread.ZkClient-EventThread-177-null - INFO  - Terminate ZkClient event thread.
+ [2018-06-13 20:21:13] ZKPoolUtils.main - ERROR - 
+ [2018-06-13 20:21:13] ZkEventThread.ZkClient-EventThread-178-null - INFO  - Starting ZkClient event thread.
+ [2018-06-13 20:21:13] ZooKeeper.main - INFO  - Initiating client connection, connectString=null sessionTimeout=30000 watcher=org.I0Itec.zkclient.ZkClient@5ebec15
+ [2018-06-13 20:21:13] ZkEventThread.ZkClient-EventThread-178-null - INFO  - Terminate ZkClient event thread.
+ [2018-06-13 20:21:13] ZKPoolUtils.main - ERROR - 
+ [2018-06-13 20:21:13] ZooKeeper.main - INFO  - Initiating client connection, connectString=null sessionTimeout=30000 watcher=org.I0Itec.zkclient.ZkClient@21bcffb5
+ [2018-06-13 20:21:13] ZkEventThread.ZkClient-EventThread-179-null - INFO  - Starting ZkClient event thread.
+ [2018-06-13 20:21:13] ZkEventThread.ZkClient-EventThread-179-null - INFO  - Terminate ZkClient event thread.
+ [2018-06-13 20:21:13] ZKPoolUtils.main - ERROR - 
+ [2018-06-13 20:21:13] ZooKeeper.main - INFO  - Initiating client connection, connectString=null sessionTimeout=30000 watcher=org.I0Itec.zkclient.ZkClient@380fb434
+ [2018-06-13 20:21:13] ZkEventThread.ZkClient-EventThread-180-null - INFO  - Starting ZkClient event thread.
+ [2018-06-13 20:21:13] ZkEventThread.ZkClient-EventThread-180-null - INFO  - Terminate ZkClient event thread.
+ [2018-06-13 20:21:13] ZKPoolUtils.main - ERROR - 
+ [2018-06-13 20:21:13] ZkEventThread.ZkClient-EventThread-181-null - INFO  - Starting ZkClient event thread.
+ [2018-06-13 20:21:13] ZooKeeper.main - INFO  - Initiating client connection, connectString=null sessionTimeout=30000 watcher=org.I0Itec.zkclient.ZkClient@668bc3d5
+ [2018-06-13 20:21:13] ZkEventThread.ZkClient-EventThread-181-null - INFO  - Terminate ZkClient event thread.
+ [2018-06-13 20:21:13] ZKPoolUtils.main - ERROR - 
+ [2018-06-13 20:21:13] ZooKeeper.main - INFO  - Initiating client connection, connectString=null sessionTimeout=30000 watcher=org.I0Itec.zkclient.ZkClient@3cda1055
+ [2018-06-13 20:21:13] ZkEventThread.ZkClient-EventThread-182-null - INFO  - Starting ZkClient event thread.
+ [2018-06-13 20:21:13] ZkEventThread.ZkClient-EventThread-182-null - INFO  - Terminate ZkClient event thread.
+ [2018-06-13 20:21:13] ZKPoolUtils.main - ERROR - 
+ [2018-06-13 20:21:13] ZooKeeper.main - INFO  - Initiating client connection, connectString=null sessionTimeout=30000 watcher=org.I0Itec.zkclient.ZkClient@7a5d012c
+ [2018-06-13 20:21:13] ZkEventThread.ZkClient-EventThread-183-null - INFO  - Starting ZkClient event thread.
+ [2018-06-13 20:21:13] ZkEventThread.ZkClient-EventThread-183-null - INFO  - Terminate ZkClient event thread.
+ [2018-06-13 20:21:13] ZKPoolUtils.main - ERROR - 
+ [2018-06-13 20:21:13] ZkEventThread.ZkClient-EventThread-184-null - INFO  - Starting ZkClient event thread.
+ [2018-06-13 20:21:13] ZooKeeper.main - INFO  - Initiating client connection, connectString=null sessionTimeout=30000 watcher=org.I0Itec.zkclient.ZkClient@3fb6a447
+ [2018-06-13 20:21:13] ZkEventThread.ZkClient-EventThread-184-null - INFO  - Terminate ZkClient event thread.
+ [2018-06-13 20:21:13] ZKPoolUtils.main - ERROR - 
+ [2018-06-13 20:21:13] ZKPoolUtils.Thread-0 - INFO  - Get poolZKSerializer,and available size [24]
+ [2018-06-13 20:21:13] TestKafkaOffsetGetter.main - INFO  - Initialize KafkaOffsetGetter clazz.
+ 

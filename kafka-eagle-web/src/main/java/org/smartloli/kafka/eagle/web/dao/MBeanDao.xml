@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.smartloli.kafka.eagle.web.dao.MBeanDao">
+
+	<resultMap type="org.smartloli.kafka.eagle.common.protocol.KpiInfo"
+		id="kpi">
+		<result property="cluster" column="cluster" />
+		<result property="broker" column="broker" />
+		<result property="type" column="type" />
+		<result property="key" column="key" />
+		<result property="value" column="value" />
+		<result property="timespan" column="timespan" />
+		<result property="tm" column="tm" />
+	</resultMap>
+
+	<insert id="insert" parameterType="java.util.List">
+		insert into
+		ke_metrics(`cluster`,`broker`,`type`,`key`,`value`,`timespan`,`tm`)
+		values
+		<foreach collection="list" item="item" index="index"
+			separator=",">
+			(#{item.cluster},#{item.broker},#{item.type},#{item.key},#{item.value},#{item.timespan},#{item.tm})
+		</foreach>
+	</insert>
+
+	<delete id="remove" parameterType="int">
+		delete from ke_trend where
+		tm&lt;=#{tm}
+	</delete>
+
+	<select id="query" parameterType="map" resultMap="kpi">
+		select
+		`broker`,`key`,`value`
+		from ke_metrics where
+		`cluster`=#{cluster} and
+		type=#{type} and tm
+		between
+		#{stime} and
+		#{etime}
+	</select>
+
+	<select id="getHost" parameterType="map" resultMap="kpi">
+		select
+		`broker`,`key`,`value`,`timespan`
+		from ke_metrics where
+		`cluster`=#{cluster} and tm
+		between #{stime} and
+		#{etime}
+	</select>
+
+</mapper>

@@ -1,0 +1,173 @@
+[2018-06-01 17:39:42] TestSaslKafkaOffsetGetter.main - INFO  - Initialize KafkaOffsetGetter clazz.
+ [2018-06-01 17:39:42] SystemConfigUtils.main - INFO  - Successfully loaded default properties.
+ [2018-06-01 17:39:42] ZkEventThread.ZkClient-EventThread-10-dn1:2181 - INFO  - Starting ZkClient event thread.
+ [2018-06-01 17:39:42] ZooKeeper.main - INFO  - Client environment:zookeeper.version=3.4.8--1, built on 02/06/2016 03:18 GMT
+ [2018-06-01 17:39:42] ZooKeeper.main - INFO  - Client environment:host.name=172.16.16.195
+ [2018-06-01 17:39:42] ZooKeeper.main - INFO  - Client environment:java.version=1.8.0_161
+ [2018-06-01 17:39:42] ZooKeeper.main - INFO  - Client environment:java.vendor=Oracle Corporation
+ [2018-06-01 17:39:42] ZooKeeper.main - INFO  - Client environment:java.home=/Library/Java/JavaVirtualMachines/jdk1.8.0_161.jdk/Contents/Home/jre
+ [2018-06-01 17:39:42] ZooKeeper.main - INFO  - Client environment:java.class.path=/Users/maple/ideaspace/kafka-eagle-git/kafka-eagle-core/target/test-classes:/Users/maple/ideaspace/kafka-eagle-git/kafka-eagle-core/target/classes:/Users/maple/ideaspace/kafka-eagle-git/kafka-eagle-common/target/kafka-eagle-common-1.2.2.jar:/Users/maple/.m2/repository/org/slf4j/slf4j-log4j12/1.7.5/slf4j-log4j12-1.7.5.jar:/Users/maple/.m2/repository/log4j/log4j/1.2.17/log4j-1.2.17.jar:/Users/maple/.m2/repository/com/alibaba/fastjson/1.2.7/fastjson-1.2.7.jar:/Users/maple/.m2/repository/com/google/guava/guava/19.0/guava-19.0.jar:/Users/maple/.m2/repository/com/google/code/gson/gson/2.2.4/gson-2.2.4.jar:/Users/maple/.m2/repository/commons-httpclient/commons-httpclient/3.0/commons-httpclient-3.0.jar:/Users/maple/.m2/repository/junit/junit/3.8.1/junit-3.8.1.jar:/Users/maple/.m2/repository/commons-lang/commons-lang/2.6/commons-lang-2.6.jar:/Users/maple/.m2/repository/commons-logging/commons-logging/1.1.2/commons-logging-1.1.2.jar:/Users/maple/.m2/repository/javax/mail/mail/1.4.7/mail-1.4.7.jar:/Users/maple/.m2/repository/javax/activation/activation/1.1/activation-1.1.jar:/Users/maple/.m2/repository/com/101tec/zkclient/0.9/zkclient-0.9.jar:/Users/maple/.m2/repository/org/apache/zookeeper/zookeeper/3.4.8/zookeeper-3.4.8.jar:/Users/maple/.m2/repository/jline/jline/0.9.94/jline-0.9.94.jar:/Users/maple/.m2/repository/io/netty/netty/3.7.0.Final/netty-3.7.0.Final.jar:/Users/maple/.m2/repository/org/apache/kafka/kafka_2.11/0.10.2.0/kafka_2.11-0.10.2.0.jar:/Users/maple/.m2/repository/org/apache/kafka/kafka-clients/0.10.2.0/kafka-clients-0.10.2.0.jar:/Users/maple/.m2/repository/net/jpountz/lz4/lz4/1.3.0/lz4-1.3.0.jar:/Users/maple/.m2/repository/org/xerial/snappy/snappy-java/1.1.2.6/snappy-java-1.1.2.6.jar:/Users/maple/.m2/repository/net/sf/jopt-simple/jopt-simple/5.0.3/jopt-simple-5.0.3.jar:/Users/maple/.m2/repository/com/yammer/metrics/metrics-core/2.2.0/metrics-core-2.2.0.jar:/Users/maple/.m2/repository/org/scala-lang/scala-library/2.11.8/scala-library-2.11.8.jar:/Users/maple/.m2/repository/org/scala-lang/modules/scala-parser-combinators_2.11/1.0.4/scala-parser-combinators_2.11-1.0.4.jar:/Users/maple/.m2/repository/mysql/mysql-connector-java/5.1.30/mysql-connector-java-5.1.30.jar:/Users/maple/.m2/repository/org/xerial/sqlite-jdbc/3.21.0.1/sqlite-jdbc-3.21.0.1.jar:/Users/maple/.m2/repository/org/apache/calcite/calcite-core/1.11.0/calcite-core-1.11.0.jar:/Users/maple/.m2/repository/org/apache/calcite/avatica/avatica-core/1.9.0/avatica-core-1.9.0.jar:/Users/maple/.m2/repository/org/apache/calcite/avatica/avatica-metrics/1.9.0/avatica-metrics-1.9.0.jar:/Users/maple/.m2/repository/org/apache/httpcomponents/httpclient/4.5.2/httpclient-4.5.2.jar:/Users/maple/.m2/repository/org/apache/httpcomponents/httpcore/4.4.4/httpcore-4.4.4.jar:/Users/maple/.m2/repository/commons-dbcp/commons-dbcp/1.4/commons-dbcp-1.4.jar:/Users/maple/.m2/repository/commons-pool/commons-pool/1.5.4/commons-pool-1.5.4.jar:/Users/maple/.m2/repository/org/apache/commons/commons-lang3/3.2/commons-lang3-3.2.jar:/Users/maple/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.6.3/jackson-core-2.6.3.jar:/Users/maple/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.6.3/jackson-annotations-2.6.3.jar:/Users/maple/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.6.3/jackson-databind-2.6.3.jar:/Users/maple/.m2/repository/com/google/code/findbugs/jsr305/1.3.9/jsr305-1.3.9.jar:/Users/maple/.m2/repository/net/hydromatic/aggdesigner-algorithm/6.0/aggdesigner-algorithm-6.0.jar:/Users/maple/.m2/repository/org/codehaus/janino/janino/2.7.6/janino-2.7.6.jar:/Users/maple/.m2/repository/org/codehaus/janino/commons-compiler/2.7.6/commons-compiler-2.7.6.jar:/Users/maple/.m2/repository/org/slf4j/slf4j-api/1.7.13/slf4j-api-1.7.13.jar:/Users/maple/.m2/repository/org/apache/calcite/calcite-avatica/1.6.0/calcite-avatica-1.6.0.jar:/Users/maple/.m2/repository/com/google/protobuf/protobuf-java/3.0.0-beta-1/protobuf-java-3.0.0-beta-1.jar:/Users/maple/.m2/repository/org/apache/calcite/calcite-linq4j/1.11.0/calcite-linq4j-1.11.0.jar:/Users/maple/.m2/repository/org/apache/ignite/ignite-core/2.3.0/ignite-core-2.3.0.jar:/Users/maple/.m2/repository/javax/cache/cache-api/1.0.0/cache-api-1.0.0.jar:/Users/maple/.m2/repository/org/jetbrains/annotations/13.0/annotations-13.0.jar:/Users/maple/.m2/repository/org/gridgain/ignite-shmem/1.0.0/ignite-shmem-1.0.0.jar:/Users/maple/.m2/repository/org/apache/ignite/ignite-spring/2.3.0/ignite-spring-2.3.0.jar:/Users/maple/.m2/repository/org/springframework/spring-core/4.3.7.RELEASE/spring-core-4.3.7.RELEASE.jar:/Users/maple/.m2/repository/org/springframework/spring-aop/4.3.7.RELEASE/spring-aop-4.3.7.RELEASE.jar:/Users/maple/.m2/repository/org/springframework/spring-beans/4.3.7.RELEASE/spring-beans-4.3.7.RELEASE.jar:/Users/maple/.m2/repository/org/springframework/spring-context/4.3.7.RELEASE/spring-context-4.3.7.RELEASE.jar:/Users/maple/.m2/repository/org/springframework/spring-expression/4.3.7.RELEASE/spring-expression-4.3.7.RELEASE.jar:/Users/maple/.m2/repository/org/springframework/spring-tx/4.3.7.RELEASE/spring-tx-4.3.7.RELEASE.jar:/Users/maple/.m2/repository/org/springframework/spring-jdbc/4.3.7.RELEASE/spring-jdbc-4.3.7.RELEASE.jar:/Users/maple/.m2/repository/org/apache/ignite/ignite-indexing/2.3.0/ignite-indexing-2.3.0.jar:/Users/maple/.m2/repository/commons-codec/commons-codec/1.6/commons-codec-1.6.jar:/Users/maple/.m2/repository/org/apache/lucene/lucene-core/5.5.2/lucene-core-5.5.2.jar:/Users/maple/.m2/repository/org/apache/lucene/lucene-analyzers-common/5.5.2/lucene-analyzers-common-5.5.2.jar:/Users/maple/.m2/repository/org/apache/lucene/lucene-queryparser/5.5.2/lucene-queryparser-5.5.2.jar:/Users/maple/.m2/repository/org/apache/lucene/lucene-queries/5.5.2/lucene-queries-5.5.2.jar:/Users/maple/.m2/repository/org/apache/lucene/lucene-sandbox/5.5.2/lucene-sandbox-5.5.2.jar:/Users/maple/.m2/repository/com/h2database/h2/1.4.195/h2-1.4.195.jar:
+ [2018-06-01 17:39:42] ZooKeeper.main - INFO  - Client environment:java.library.path=/Users/maple/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.
+ [2018-06-01 17:39:42] ZooKeeper.main - INFO  - Client environment:java.io.tmpdir=/var/folders/b3/3qln3fjx61v26zql8r7sdhg00000gn/T/
+ [2018-06-01 17:39:42] ZooKeeper.main - INFO  - Client environment:java.compiler=<NA>
+ [2018-06-01 17:39:42] ZooKeeper.main - INFO  - Client environment:os.name=Mac OS X
+ [2018-06-01 17:39:42] ZooKeeper.main - INFO  - Client environment:os.arch=x86_64
+ [2018-06-01 17:39:42] ZooKeeper.main - INFO  - Client environment:os.version=10.13.3
+ [2018-06-01 17:39:42] ZooKeeper.main - INFO  - Client environment:user.name=maple
+ [2018-06-01 17:39:42] ZooKeeper.main - INFO  - Client environment:user.home=/Users/maple
+ [2018-06-01 17:39:42] ZooKeeper.main - INFO  - Client environment:user.dir=/Users/maple/ideaspace/kafka-eagle-git/kafka-eagle-core
+ [2018-06-01 17:39:42] ZooKeeper.main - INFO  - Initiating client connection, connectString=dn1:2181 sessionTimeout=30000 watcher=org.I0Itec.zkclient.ZkClient@649d209a
+ [2018-06-01 17:39:43] ZkEventThread.ZkClient-EventThread-10-dn1:2181 - INFO  - Terminate ZkClient event thread.
+ [2018-06-01 17:39:43] ZKPoolUtils.main - ERROR - Unable to connect to dn1:2181
+ [2018-06-01 17:39:43] ZooKeeper.main - INFO  - Initiating client connection, connectString=dn1:2181 sessionTimeout=30000 watcher=org.I0Itec.zkclient.ZkClient@d7b1517
+ [2018-06-01 17:39:43] ZkEventThread.ZkClient-EventThread-11-dn1:2181 - INFO  - Starting ZkClient event thread.
+ [2018-06-01 17:39:43] ZKPoolUtils.main - ERROR - Unable to connect to dn1:2181
+ [2018-06-01 17:39:43] ZooKeeper.main - INFO  - Initiating client connection, connectString=dn1:2181 sessionTimeout=30000 watcher=org.I0Itec.zkclient.ZkClient@16c0663d
+ [2018-06-01 17:39:43] ZkEventThread.ZkClient-EventThread-12-dn1:2181 - INFO  - Starting ZkClient event thread.
+ [2018-06-01 17:39:43] ZKPoolUtils.main - ERROR - Unable to connect to dn1:2181
+ [2018-06-01 17:39:43] ZooKeeper.main - INFO  - Initiating client connection, connectString=dn1:2181 sessionTimeout=30000 watcher=org.I0Itec.zkclient.ZkClient@23223dd8
+ [2018-06-01 17:39:43] ZkEventThread.ZkClient-EventThread-13-dn1:2181 - INFO  - Starting ZkClient event thread.
+ [2018-06-01 17:39:43] ZKPoolUtils.main - ERROR - Unable to connect to dn1:2181
+ [2018-06-01 17:39:43] ZooKeeper.main - INFO  - Initiating client connection, connectString=dn1:2181 sessionTimeout=30000 watcher=org.I0Itec.zkclient.ZkClient@4ec6a292
+ [2018-06-01 17:39:43] ZkEventThread.ZkClient-EventThread-14-dn1:2181 - INFO  - Starting ZkClient event thread.
+ [2018-06-01 17:39:43] ZKPoolUtils.main - ERROR - Unable to connect to dn1:2181
+ [2018-06-01 17:39:43] ZooKeeper.main - INFO  - Initiating client connection, connectString=dn1:2181 sessionTimeout=30000 watcher=org.I0Itec.zkclient.ZkClient@1b40d5f0
+ [2018-06-01 17:39:43] ZkEventThread.ZkClient-EventThread-15-dn1:2181 - INFO  - Starting ZkClient event thread.
+ [2018-06-01 17:39:43] ZKPoolUtils.main - ERROR - Unable to connect to dn1:2181
+ [2018-06-01 17:39:43] ZooKeeper.main - INFO  - Initiating client connection, connectString=dn1:2181 sessionTimeout=30000 watcher=org.I0Itec.zkclient.ZkClient@ea4a92b
+ [2018-06-01 17:39:43] ZkEventThread.ZkClient-EventThread-16-dn1:2181 - INFO  - Starting ZkClient event thread.
+ [2018-06-01 17:39:43] ZKPoolUtils.main - ERROR - Unable to connect to dn1:2181
+ [2018-06-01 17:39:43] ZooKeeper.main - INFO  - Initiating client connection, connectString=dn1:2181 sessionTimeout=30000 watcher=org.I0Itec.zkclient.ZkClient@3c5a99da
+ [2018-06-01 17:39:43] ZkEventThread.ZkClient-EventThread-17-dn1:2181 - INFO  - Starting ZkClient event thread.
+ [2018-06-01 17:39:43] ZKPoolUtils.main - ERROR - Unable to connect to dn1:2181
+ [2018-06-01 17:39:43] ZooKeeper.main - INFO  - Initiating client connection, connectString=dn1:2181 sessionTimeout=30000 watcher=org.I0Itec.zkclient.ZkClient@47f37ef1
+ [2018-06-01 17:39:43] ZkEventThread.ZkClient-EventThread-18-dn1:2181 - INFO  - Starting ZkClient event thread.
+ [2018-06-01 17:39:43] ZKPoolUtils.main - ERROR - Unable to connect to dn1:2181
+ [2018-06-01 17:39:43] ZooKeeper.main - INFO  - Initiating client connection, connectString=dn1:2181 sessionTimeout=30000 watcher=org.I0Itec.zkclient.ZkClient@5a01ccaa
+ [2018-06-01 17:39:43] ZkEventThread.ZkClient-EventThread-19-dn1:2181 - INFO  - Starting ZkClient event thread.
+ [2018-06-01 17:39:43] ZKPoolUtils.main - ERROR - Unable to connect to dn1:2181
+ [2018-06-01 17:39:43] ZooKeeper.main - INFO  - Initiating client connection, connectString=dn1:2181 sessionTimeout=30000 watcher=org.I0Itec.zkclient.ZkClient@71c7db30
+ [2018-06-01 17:39:43] ZkEventThread.ZkClient-EventThread-20-dn1:2181 - INFO  - Starting ZkClient event thread.
+ [2018-06-01 17:39:43] ZKPoolUtils.main - ERROR - Unable to connect to dn1:2181
+ [2018-06-01 17:39:43] ZooKeeper.main - INFO  - Initiating client connection, connectString=dn1:2181 sessionTimeout=30000 watcher=org.I0Itec.zkclient.ZkClient@19bb089b
+ [2018-06-01 17:39:43] ZkEventThread.ZkClient-EventThread-21-dn1:2181 - INFO  - Starting ZkClient event thread.
+ [2018-06-01 17:39:43] ZKPoolUtils.main - ERROR - Unable to connect to dn1:2181
+ [2018-06-01 17:39:43] ZooKeeper.main - INFO  - Initiating client connection, connectString=dn1:2181 sessionTimeout=30000 watcher=org.I0Itec.zkclient.ZkClient@4563e9ab
+ [2018-06-01 17:39:43] ZkEventThread.ZkClient-EventThread-22-dn1:2181 - INFO  - Starting ZkClient event thread.
+ [2018-06-01 17:39:43] ZKPoolUtils.main - ERROR - Unable to connect to dn1:2181
+ [2018-06-01 17:39:43] ZooKeeper.main - INFO  - Initiating client connection, connectString=dn1:2181 sessionTimeout=30000 watcher=org.I0Itec.zkclient.ZkClient@11531931
+ [2018-06-01 17:39:43] ZkEventThread.ZkClient-EventThread-23-dn1:2181 - INFO  - Starting ZkClient event thread.
+ [2018-06-01 17:39:43] ZKPoolUtils.main - ERROR - Unable to connect to dn1:2181
+ [2018-06-01 17:39:43] ZooKeeper.main - INFO  - Initiating client connection, connectString=dn1:2181 sessionTimeout=30000 watcher=org.I0Itec.zkclient.ZkClient@5e025e70
+ [2018-06-01 17:39:43] ZkEventThread.ZkClient-EventThread-24-dn1:2181 - INFO  - Starting ZkClient event thread.
+ [2018-06-01 17:39:43] ZkEventThread.ZkClient-EventThread-24-dn1:2181 - INFO  - Terminate ZkClient event thread.
+ [2018-06-01 17:39:43] ZKPoolUtils.main - ERROR - Unable to connect to dn1:2181
+ [2018-06-01 17:39:43] ZooKeeper.main - INFO  - Initiating client connection, connectString=dn1:2181 sessionTimeout=30000 watcher=org.I0Itec.zkclient.ZkClient@1fbc7afb
+ [2018-06-01 17:39:43] ZkEventThread.ZkClient-EventThread-25-dn1:2181 - INFO  - Starting ZkClient event thread.
+ [2018-06-01 17:39:43] ZKPoolUtils.main - ERROR - Unable to connect to dn1:2181
+ [2018-06-01 17:39:43] ZooKeeper.main - INFO  - Initiating client connection, connectString=dn1:2181 sessionTimeout=30000 watcher=org.I0Itec.zkclient.ZkClient@45c8e616
+ [2018-06-01 17:39:43] ZkEventThread.ZkClient-EventThread-26-dn1:2181 - INFO  - Starting ZkClient event thread.
+ [2018-06-01 17:39:43] ZKPoolUtils.main - ERROR - Unable to connect to dn1:2181
+ [2018-06-01 17:39:43] ZooKeeper.main - INFO  - Initiating client connection, connectString=dn1:2181 sessionTimeout=30000 watcher=org.I0Itec.zkclient.ZkClient@4cdbe50f
+ [2018-06-01 17:39:43] ZkEventThread.ZkClient-EventThread-27-dn1:2181 - INFO  - Starting ZkClient event thread.
+ [2018-06-01 17:39:43] ZKPoolUtils.main - ERROR - Unable to connect to dn1:2181
+ [2018-06-01 17:39:43] ZooKeeper.main - INFO  - Initiating client connection, connectString=dn1:2181 sessionTimeout=30000 watcher=org.I0Itec.zkclient.ZkClient@66d33a
+ [2018-06-01 17:39:43] ZkEventThread.ZkClient-EventThread-28-dn1:2181 - INFO  - Starting ZkClient event thread.
+ [2018-06-01 17:39:43] ZKPoolUtils.main - ERROR - Unable to connect to dn1:2181
+ [2018-06-01 17:39:43] ZooKeeper.main - INFO  - Initiating client connection, connectString=dn1:2181 sessionTimeout=30000 watcher=org.I0Itec.zkclient.ZkClient@7cf10a6f
+ [2018-06-01 17:39:43] ZkEventThread.ZkClient-EventThread-29-dn1:2181 - INFO  - Starting ZkClient event thread.
+ [2018-06-01 17:39:43] ZKPoolUtils.main - ERROR - Unable to connect to dn1:2181
+ [2018-06-01 17:39:43] ZooKeeper.main - INFO  - Initiating client connection, connectString=dn1:2181 sessionTimeout=30000 watcher=org.I0Itec.zkclient.ZkClient@7e0babb1
+ [2018-06-01 17:39:43] ZkEventThread.ZkClient-EventThread-30-dn1:2181 - INFO  - Starting ZkClient event thread.
+ [2018-06-01 17:39:43] ZKPoolUtils.main - ERROR - Unable to connect to dn1:2181
+ [2018-06-01 17:39:43] ZkEventThread.ZkClient-EventThread-31-dn1:2181 - INFO  - Starting ZkClient event thread.
+ [2018-06-01 17:39:43] ZooKeeper.main - INFO  - Initiating client connection, connectString=dn1:2181 sessionTimeout=30000 watcher=org.I0Itec.zkclient.ZkClient@6debcae2
+ [2018-06-01 17:39:43] ZkEventThread.ZkClient-EventThread-31-dn1:2181 - INFO  - Terminate ZkClient event thread.
+ [2018-06-01 17:39:43] ZKPoolUtils.main - ERROR - Unable to connect to dn1:2181
+ [2018-06-01 17:39:43] ZooKeeper.main - INFO  - Initiating client connection, connectString=dn1:2181 sessionTimeout=30000 watcher=org.I0Itec.zkclient.ZkClient@5ba23b66
+ [2018-06-01 17:39:43] ZkEventThread.ZkClient-EventThread-32-dn1:2181 - INFO  - Starting ZkClient event thread.
+ [2018-06-01 17:39:43] ZKPoolUtils.main - ERROR - Unable to connect to dn1:2181
+ [2018-06-01 17:39:43] ZooKeeper.main - INFO  - Initiating client connection, connectString=dn1:2181 sessionTimeout=30000 watcher=org.I0Itec.zkclient.ZkClient@2ff4f00f
+ [2018-06-01 17:39:43] ZkEventThread.ZkClient-EventThread-33-dn1:2181 - INFO  - Starting ZkClient event thread.
+ [2018-06-01 17:39:43] ZKPoolUtils.main - ERROR - Unable to connect to dn1:2181
+ [2018-06-01 17:39:43] ZkEventThread.ZkClient-EventThread-34-dn1:2181 - INFO  - Starting ZkClient event thread.
+ [2018-06-01 17:39:43] ZooKeeper.main - INFO  - Initiating client connection, connectString=dn1:2181 sessionTimeout=30000 watcher=org.I0Itec.zkclient.ZkClient@c818063
+ [2018-06-01 17:39:43] ZkEventThread.ZkClient-EventThread-34-dn1:2181 - INFO  - Terminate ZkClient event thread.
+ [2018-06-01 17:39:43] ZKPoolUtils.main - ERROR - Unable to connect to dn1:2181
+ [2018-06-01 17:39:43] ZooKeeper.Thread-0 - INFO  - Initiating client connection, connectString=dn1:2181 sessionTimeout=2147483647 watcher=org.I0Itec.zkclient.ZkClient@3720f4f0
+ [2018-06-01 17:39:43] ZkEventThread.ZkClient-EventThread-36-dn1:2181 - INFO  - Starting ZkClient event thread.
+ [2018-06-01 17:39:43] ZKPoolUtils.Thread-0 - ERROR - Unable to connect to dn1:2181
+ [2018-06-01 17:39:43] ZooKeeper.Thread-0 - INFO  - Initiating client connection, connectString=dn1:2181 sessionTimeout=2147483647 watcher=org.I0Itec.zkclient.ZkClient@72226c70
+ [2018-06-01 17:39:43] ZkEventThread.ZkClient-EventThread-37-dn1:2181 - INFO  - Starting ZkClient event thread.
+ [2018-06-01 17:39:43] ZKPoolUtils.Thread-0 - ERROR - Unable to connect to dn1:2181
+ [2018-06-01 17:39:43] ZooKeeper.Thread-0 - INFO  - Initiating client connection, connectString=dn1:2181 sessionTimeout=2147483647 watcher=org.I0Itec.zkclient.ZkClient@bffc92b
+ [2018-06-01 17:39:43] ZkEventThread.ZkClient-EventThread-38-dn1:2181 - INFO  - Starting ZkClient event thread.
+ [2018-06-01 17:39:43] ZKPoolUtils.Thread-0 - ERROR - Unable to connect to dn1:2181
+ [2018-06-01 17:39:43] ZooKeeper.Thread-0 - INFO  - Initiating client connection, connectString=dn1:2181 sessionTimeout=2147483647 watcher=org.I0Itec.zkclient.ZkClient@439adb21
+ [2018-06-01 17:39:43] ZkEventThread.ZkClient-EventThread-39-dn1:2181 - INFO  - Starting ZkClient event thread.
+ [2018-06-01 17:39:43] ZKPoolUtils.Thread-0 - ERROR - Unable to connect to dn1:2181
+ [2018-06-01 17:39:43] ZooKeeper.Thread-0 - INFO  - Initiating client connection, connectString=dn1:2181 sessionTimeout=2147483647 watcher=org.I0Itec.zkclient.ZkClient@73ad20d6
+ [2018-06-01 17:39:43] ZkEventThread.ZkClient-EventThread-40-dn1:2181 - INFO  - Starting ZkClient event thread.
+ [2018-06-01 17:39:43] ZKPoolUtils.Thread-0 - ERROR - Unable to connect to dn1:2181
+ [2018-06-01 17:39:43] ZooKeeper.Thread-0 - INFO  - Initiating client connection, connectString=dn1:2181 sessionTimeout=2147483647 watcher=org.I0Itec.zkclient.ZkClient@120d933f
+ [2018-06-01 17:39:43] ZkEventThread.ZkClient-EventThread-41-dn1:2181 - INFO  - Starting ZkClient event thread.
+ [2018-06-01 17:39:43] ZKPoolUtils.Thread-0 - ERROR - Unable to connect to dn1:2181
+ [2018-06-01 17:39:43] ZooKeeper.Thread-0 - INFO  - Initiating client connection, connectString=dn1:2181 sessionTimeout=2147483647 watcher=org.I0Itec.zkclient.ZkClient@674eb6c4
+ [2018-06-01 17:39:43] ZkEventThread.ZkClient-EventThread-42-dn1:2181 - INFO  - Starting ZkClient event thread.
+ [2018-06-01 17:39:43] ZKPoolUtils.Thread-0 - ERROR - Unable to connect to dn1:2181
+ [2018-06-01 17:39:43] ZooKeeper.Thread-0 - INFO  - Initiating client connection, connectString=dn1:2181 sessionTimeout=2147483647 watcher=org.I0Itec.zkclient.ZkClient@72983adf
+ [2018-06-01 17:39:43] ZkEventThread.ZkClient-EventThread-43-dn1:2181 - INFO  - Starting ZkClient event thread.
+ [2018-06-01 17:39:43] ZKPoolUtils.Thread-0 - ERROR - Unable to connect to dn1:2181
+ [2018-06-01 17:39:43] ZooKeeper.Thread-0 - INFO  - Initiating client connection, connectString=dn1:2181 sessionTimeout=2147483647 watcher=org.I0Itec.zkclient.ZkClient@68a90fca
+ [2018-06-01 17:39:43] ZkEventThread.ZkClient-EventThread-44-dn1:2181 - INFO  - Starting ZkClient event thread.
+ [2018-06-01 17:39:43] ZKPoolUtils.Thread-0 - ERROR - Unable to connect to dn1:2181
+ [2018-06-01 17:39:43] ZooKeeper.Thread-0 - INFO  - Initiating client connection, connectString=dn1:2181 sessionTimeout=2147483647 watcher=org.I0Itec.zkclient.ZkClient@1643ed8b
+ [2018-06-01 17:39:43] ZkEventThread.ZkClient-EventThread-45-dn1:2181 - INFO  - Starting ZkClient event thread.
+ [2018-06-01 17:39:43] ZKPoolUtils.Thread-0 - ERROR - Unable to connect to dn1:2181
+ [2018-06-01 17:39:43] ZooKeeper.Thread-0 - INFO  - Initiating client connection, connectString=dn1:2181 sessionTimeout=2147483647 watcher=org.I0Itec.zkclient.ZkClient@4299111
+ [2018-06-01 17:39:43] ZkEventThread.ZkClient-EventThread-46-dn1:2181 - INFO  - Starting ZkClient event thread.
+ [2018-06-01 17:39:43] ZKPoolUtils.Thread-0 - ERROR - Unable to connect to dn1:2181
+ [2018-06-01 17:39:43] ZooKeeper.Thread-0 - INFO  - Initiating client connection, connectString=dn1:2181 sessionTimeout=2147483647 watcher=org.I0Itec.zkclient.ZkClient@37d41d89
+ [2018-06-01 17:39:43] ZkEventThread.ZkClient-EventThread-47-dn1:2181 - INFO  - Starting ZkClient event thread.
+ [2018-06-01 17:39:43] ZKPoolUtils.Thread-0 - ERROR - Unable to connect to dn1:2181
+ [2018-06-01 17:39:43] ZooKeeper.Thread-0 - INFO  - Initiating client connection, connectString=dn1:2181 sessionTimeout=2147483647 watcher=org.I0Itec.zkclient.ZkClient@17a383e6
+ [2018-06-01 17:39:43] ZkEventThread.ZkClient-EventThread-48-dn1:2181 - INFO  - Starting ZkClient event thread.
+ [2018-06-01 17:39:43] ZKPoolUtils.Thread-0 - ERROR - Unable to connect to dn1:2181
+ [2018-06-01 17:39:43] ZooKeeper.Thread-0 - INFO  - Initiating client connection, connectString=dn1:2181 sessionTimeout=2147483647 watcher=org.I0Itec.zkclient.ZkClient@1e051b2c
+ [2018-06-01 17:39:43] ZkEventThread.ZkClient-EventThread-49-dn1:2181 - INFO  - Starting ZkClient event thread.
+ [2018-06-01 17:39:43] ZKPoolUtils.Thread-0 - ERROR - Unable to connect to dn1:2181
+ [2018-06-01 17:39:43] ZooKeeper.Thread-0 - INFO  - Initiating client connection, connectString=dn1:2181 sessionTimeout=2147483647 watcher=org.I0Itec.zkclient.ZkClient@56ecb0e4
+ [2018-06-01 17:39:43] ZkEventThread.ZkClient-EventThread-50-dn1:2181 - INFO  - Starting ZkClient event thread.
+ [2018-06-01 17:39:43] ZKPoolUtils.Thread-0 - ERROR - Unable to connect to dn1:2181
+ [2018-06-01 17:39:43] ZooKeeper.Thread-0 - INFO  - Initiating client connection, connectString=dn1:2181 sessionTimeout=2147483647 watcher=org.I0Itec.zkclient.ZkClient@41c3c7e5
+ [2018-06-01 17:39:43] ZkEventThread.ZkClient-EventThread-51-dn1:2181 - INFO  - Starting ZkClient event thread.
+ [2018-06-01 17:39:43] ZKPoolUtils.Thread-0 - ERROR - Unable to connect to dn1:2181
+ [2018-06-01 17:39:43] ZooKeeper.Thread-0 - INFO  - Initiating client connection, connectString=dn1:2181 sessionTimeout=2147483647 watcher=org.I0Itec.zkclient.ZkClient@4a74d088
+ [2018-06-01 17:39:43] ZkEventThread.ZkClient-EventThread-52-dn1:2181 - INFO  - Starting ZkClient event thread.
+ [2018-06-01 17:39:43] ZKPoolUtils.Thread-0 - ERROR - Unable to connect to dn1:2181
+ [2018-06-01 17:39:43] ZooKeeper.Thread-0 - INFO  - Initiating client connection, connectString=dn1:2181 sessionTimeout=2147483647 watcher=org.I0Itec.zkclient.ZkClient@7c1e6e91
+ [2018-06-01 17:39:43] ZkEventThread.ZkClient-EventThread-53-dn1:2181 - INFO  - Starting ZkClient event thread.
+ [2018-06-01 17:39:43] ZKPoolUtils.Thread-0 - ERROR - Unable to connect to dn1:2181
+ [2018-06-01 17:39:43] ZooKeeper.Thread-0 - INFO  - Initiating client connection, connectString=dn1:2181 sessionTimeout=2147483647 watcher=org.I0Itec.zkclient.ZkClient@4fc69a66
+ [2018-06-01 17:39:43] ZkEventThread.ZkClient-EventThread-54-dn1:2181 - INFO  - Starting ZkClient event thread.
+ [2018-06-01 17:39:43] ZKPoolUtils.Thread-0 - ERROR - Unable to connect to dn1:2181
+ [2018-06-01 17:39:43] ZooKeeper.Thread-0 - INFO  - Initiating client connection, connectString=dn1:2181 sessionTimeout=2147483647 watcher=org.I0Itec.zkclient.ZkClient@10e59094
+ [2018-06-01 17:39:43] ZkEventThread.ZkClient-EventThread-55-dn1:2181 - INFO  - Starting ZkClient event thread.
+ [2018-06-01 17:39:43] ZKPoolUtils.Thread-0 - ERROR - Unable to connect to dn1:2181
+ [2018-06-01 17:39:43] ZooKeeper.Thread-0 - INFO  - Initiating client connection, connectString=dn1:2181 sessionTimeout=2147483647 watcher=org.I0Itec.zkclient.ZkClient@7c79f290
+ [2018-06-01 17:39:43] ZkEventThread.ZkClient-EventThread-56-dn1:2181 - INFO  - Starting ZkClient event thread.
+ [2018-06-01 17:39:43] ZKPoolUtils.Thread-0 - ERROR - Unable to connect to dn1:2181
+ [2018-06-01 17:39:43] ZooKeeper.Thread-0 - INFO  - Initiating client connection, connectString=dn1:2181 sessionTimeout=2147483647 watcher=org.I0Itec.zkclient.ZkClient@739c7168
+ [2018-06-01 17:39:43] ZkEventThread.ZkClient-EventThread-57-dn1:2181 - INFO  - Starting ZkClient event thread.
+ [2018-06-01 17:39:43] ZKPoolUtils.Thread-0 - ERROR - Unable to connect to dn1:2181
+ [2018-06-01 17:39:43] ZooKeeper.Thread-0 - INFO  - Initiating client connection, connectString=dn1:2181 sessionTimeout=2147483647 watcher=org.I0Itec.zkclient.ZkClient@872d0d7
+ [2018-06-01 17:39:43] ZkEventThread.ZkClient-EventThread-58-dn1:2181 - INFO  - Starting ZkClient event thread.
+ [2018-06-01 17:39:43] ZKPoolUtils.Thread-0 - ERROR - Unable to connect to dn1:2181
+ [2018-06-01 17:39:43] ZooKeeper.Thread-0 - INFO  - Initiating client connection, connectString=dn1:2181 sessionTimeout=2147483647 watcher=org.I0Itec.zkclient.ZkClient@342f807d
+ [2018-06-01 17:39:43] ZkEventThread.ZkClient-EventThread-59-dn1:2181 - INFO  - Starting ZkClient event thread.
+ [2018-06-01 17:39:43] ZKPoolUtils.Thread-0 - ERROR - Unable to connect to dn1:2181
+ [2018-06-01 17:39:43] ZooKeeper.Thread-0 - INFO  - Initiating client connection, connectString=dn1:2181 sessionTimeout=2147483647 watcher=org.I0Itec.zkclient.ZkClient@771191a
+ [2018-06-01 17:39:43] ZkEventThread.ZkClient-EventThread-60-dn1:2181 - INFO  - Starting ZkClient event thread.
+ [2018-06-01 17:39:43] ZKPoolUtils.Thread-0 - ERROR - Unable to connect to dn1:2181
+ [2018-06-01 17:39:43] TestKafkaOffsetGetter.main - INFO  - Initialize KafkaOffsetGetter clazz.
+ 
