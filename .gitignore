@@ -4,4 +4,7 @@ kafka-eagle-web/docker/apps/
 *.iml
 */target
 */*.iml
+.mvn/
 
+*/*.DS_Store
+.DS_Store
