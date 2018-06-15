@@ -4,7 +4,7 @@
 [![Hex.pm](https://img.shields.io/hexpm/l/plug.svg)](https://github.com/smartloli/kafka-eagle/blob/master/LICENSE)
 
 # docker 镜像打法
-- 1.第一步，拉去代码:
+- 1.第一步，拉取代码:
 https://github.com/leihuazhe/kafka-eagle
 
 - 2.ke(root) 目录 mvn clean package 
