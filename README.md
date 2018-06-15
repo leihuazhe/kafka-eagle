@@ -3,6 +3,19 @@
 [![codebeat badge](https://codebeat.co/badges/bf22a7b2-76ac-4aba-b840-00328841d9e3)](https://codebeat.co/projects/github-com-smartloli-kafka-eagle-master)
 [![Hex.pm](https://img.shields.io/hexpm/l/plug.svg)](https://github.com/smartloli/kafka-eagle/blob/master/LICENSE)
 
+# docker 镜像打法
+1.第一步，拉去代码:
+https://github.com/leihuazhe/kafka-eagle
+
+- 2.ke(root) 目录 mvn clean package 
+
+- 3.解压 web/target下面的 kafka-eagle-web-1.2.3-bin.tar.gz
+- 4.将system-config.properties 加入到 解压出来的 kafka-eagle-web/bin下面
+- 5.将 ke.db 加入到 kafka-eagle-web/db 下面
+- 6.打镜像:
+docker build -t xxx-kafka-eagle:1.2.3 .
+
+
 # Kafka Eagle
 
 This is an monitor system and monitor your kafka clusters, and visual consumer thread,offsets,owners etc.
