@@ -38,4 +38,7 @@ public interface CounterDao {
     List<Counter> findByGroupAndTime(HashMap<String,String> paramMap);
 
     int insertCounter(Counter counter);
+
+
+
 }

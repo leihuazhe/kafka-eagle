@@ -23,12 +23,16 @@
 	</select>
 
 
-
-
     <insert id="insertCounter" parameterType="org.smartloli.kafka.eagle.web.pojo.Counter">
 		insert into
 		ke_counter(consumer_name,topic,pre_log_size,now_log_size,log_time)
 		values(#{consumerName},#{topic},#{preLogSize},#{nowLogSize},#{logTime})
 	</insert>
+
+    <select id="findByLogTimeGroup" parameterType="string"
+            resultMap="counter">
+		select * from ke_counter where log_time = #{logTime} group by consumer_name order by
+	</select>
+
 
 </mapper>

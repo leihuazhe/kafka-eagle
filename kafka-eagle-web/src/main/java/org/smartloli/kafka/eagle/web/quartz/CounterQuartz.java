@@ -44,7 +44,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
 import java.util.*;
 import java.util.Map.Entry;
 
@@ -61,6 +63,8 @@ public class CounterQuartz {
      * Kafka service interface.
      */
     private KafkaService kafkaService = new KafkaFactory().create();
+
+    private final String STORAGE_WAY = "kafka";
 
 
     @Autowired
@@ -129,17 +133,15 @@ public class CounterQuartz {
             List<OffsetsLiteInfo> offsetLites = new ArrayList<>();
             String formatter = SystemConfigUtils.getProperty("kafka.eagle.offset.storage");
             Map<String, List<String>> consumers = null;
-            if ("kafka".equals(formatter)) {
+
+            if (STORAGE_WAY.equals(formatter)) {
                 Map<String, List<String>> consumerGroupMap = new HashMap<>();
                 try {
                     JSONArray consumerGroups = JSON.parseArray(kafkaService.getKafkaConsumer(clusterAlias));
                     for (Object object : consumerGroups) {
                         JSONObject consumerGroup = (JSONObject) object;
                         String group = consumerGroup.getString("group");
-                        List<String> topics = new ArrayList<>();
-                        for (String topic : kafkaService.getKafkaConsumerTopic(clusterAlias, group)) {
-                            topics.add(topic);
-                        }
+                        List<String> topics = new ArrayList<>(kafkaService.getKafkaConsumerTopic(clusterAlias, group));
                         consumerGroupMap.put(group, topics);
                     }
                     consumers = consumerGroupMap;
@@ -157,12 +159,12 @@ public class CounterQuartz {
                     OffsetsLiteInfo offsetSQLite = new OffsetsLiteInfo();
                     for (String partitionStr : kafkaService.findTopicPartition(clusterAlias, topic)) {
                         int partition = Integer.parseInt(partitionStr);
-                        long logSize = 0L;
+                        long logSize;
 
                         logSize = kafkaService.getLogSize(hosts, topic, partition);
 
                         OffsetZkInfo offsetZk;
-                        if ("kafka".equals(formatter)) {
+                        if (STORAGE_WAY.equals(formatter)) {
                             StringBuilder bootstrapServers = new StringBuilder();
                             for (String host : hosts) {
                                 bootstrapServers.append(host).append(",");
@@ -198,33 +200,38 @@ public class CounterQuartz {
 
 
     private void counter(List<OffsetsLiteInfo> offsetLites) {
-        String nowDate = LocalDate.now(ZoneId.of("Asia/Shanghai")).toString();
+        StringBuilder msgBuilder = new StringBuilder();
+        LocalDate now = LocalDate.now(ZoneId.of("Asia/Shanghai"));
+        LocalDateTime dateTime = LocalDateTime.now(ZoneId.of("Asia/Shanghai"));
+        String nowDate = now.toString();
+        DateTimeFormatter df = DateTimeFormatter.ofPattern("YYYY-MM-dd HH:mm:ss");
+        String formatDate = df.format(dateTime);
 
         offsetLites.forEach(offset -> {
             HashMap<String, String> params = new HashMap<>();
             params.put("consumerName", offset.getGroup());
             params.put("logTime", nowDate);
+
             List<Counter> groupCounters = counterDao.findByGroupAndTime(params);
 
+            long preLogSize;
             if (groupCounters.size() > 0) {
                 counterDao.insertCounter(new Counter(offset.getGroup(), offset.getTopic(), groupCounters.get(0).getNowLogSize(), offset.getLogSize(), nowDate));
+                preLogSize = groupCounters.get(0).getNowLogSize();
             } else {
                 counterDao.insertCounter(new Counter(offset.getGroup(), offset.getTopic(), offset.getLogSize(), offset.getLogSize(), nowDate));
+                preLogSize = offset.getLogSize();
             }
+
+            msgBuilder.append("\n时间: ").append(formatDate)
+                    .append(", 消费组: ").append(offset.getGroup())
+                    .append(", Topic: ").append(offset.getTopic())
+                    .append(", 之前Size: ").append(preLogSize)
+                    .append(", 现在Size: ").append(offset.getLogSize())
+                    .append(", 消息量:").append(offset.getLogSize() - preLogSize)
+                    .append("\n");
         });
-
-        StringBuilder builder = new StringBuilder();
-
-        List<Counter> counters = counterDao.findByLogTime(nowDate);
-
-
-        counters.forEach(v -> builder.append("\n编号:").append(v.getConsumerName())
-                .append("消费组:").append(v.getConsumerName())
-                .append("Topic:").append(v.getTopic())
-                .append("之前LogSize:").append(v.getPreLogSize())
-                .append("现在LogSize:").append(v.getNowLogSize())
-                .append("时间:").append(v.getLogTime()));
-
-        DispatchMail.sendDingDing(builder.toString());
+//        List<Counter> counters = counterDao.findByLogTime(nowDate);
+        DispatchMail.sendDingDing(msgBuilder.toString());
     }
 }
