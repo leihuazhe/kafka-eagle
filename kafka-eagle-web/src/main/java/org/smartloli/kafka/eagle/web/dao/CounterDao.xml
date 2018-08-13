@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.smartloli.kafka.eagle.web.dao.CounterDao">
+
+    <resultMap type="org.smartloli.kafka.eagle.web.pojo.Counter"
+               id="counter">
+        <result property="id" column="id"/>
+        <result property="consumerName" column="consumer_name"/>
+        <result property="topic" column="topic"/>
+        <result property="preLogSize" column="pre_log_size"/>
+        <result property="nowLogSize" column="now_log_size"/>
+        <result property="logTime" column="log_time"/>
+    </resultMap>
+
+    <select id="findByLogTime" parameterType="string"
+            resultMap="counter">
+		select * from ke_counter where log_time = #{logTime}
+	</select>
+
+    <select id="findByGroupAndTime" parameterType="HashMap"
+            resultMap="counter">
+		select * from ke_counter where consumer_name = #{consumerName} AND log_time =  #{logTime} order by id desc
+	</select>
+
+
+
+
+    <insert id="insertCounter" parameterType="org.smartloli.kafka.eagle.web.pojo.Counter">
+		insert into
+		ke_counter(consumer_name,topic,pre_log_size,now_log_size,log_time)
+		values(#{consumerName},#{topic},#{preLogSize},#{nowLogSize},#{logTime})
+	</insert>
+
+</mapper>

@@ -17,27 +17,15 @@
  */
 package org.smartloli.kafka.eagle.web.quartz;
 
-import java.text.SimpleDateFormat;
-import java.time.LocalDateTime;
-import java.time.ZoneId;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Map.Entry;
-
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
 import com.maple.eagle.dingding.DispatchMail;
 import com.maple.eagle.mail.MailUtils;
 import com.maple.eagle.mail.entity.MailMsg;
 import com.maple.eagle.mail.enums.MailMsgType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONArray;
-import com.alibaba.fastjson.JSONObject;
-
 import org.smartloli.kafka.eagle.api.email.MailFactory;
 import org.smartloli.kafka.eagle.api.email.MailProvider;
 import org.smartloli.kafka.eagle.common.protocol.AlarmInfo;
@@ -50,6 +38,15 @@ import org.smartloli.kafka.eagle.core.factory.KafkaFactory;
 import org.smartloli.kafka.eagle.core.factory.KafkaService;
 import org.smartloli.kafka.eagle.core.factory.ZkFactory;
 import org.smartloli.kafka.eagle.core.factory.ZkService;
+import org.smartloli.kafka.eagle.web.dao.CounterDao;
+import org.smartloli.kafka.eagle.web.pojo.Counter;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.util.*;
+import java.util.Map.Entry;
 
 /**
  * Per 5 mins to stats offsets to offsets table.
@@ -58,84 +55,16 @@ import org.smartloli.kafka.eagle.core.factory.ZkService;
  * <p>
  * Created by Aug 18, 2016
  */
-public class OffsetsQuartz {
-
-    private final Logger LOG = LoggerFactory.getLogger(OffsetsQuartz.class);
-
+public class CounterQuartz {
+    private final Logger logger = LoggerFactory.getLogger(CounterQuartz.class);
     /**
      * Kafka service interface.
      */
     private KafkaService kafkaService = new KafkaFactory().create();
 
-    /**
-     * Zookeeper service interface.
-     */
-    private ZkService zkService = new ZkFactory().create();
 
-    /**
-     * Get alarmer configure.
-     */
-    private List<AlarmInfo> alarmConfigure(String clusterAlias) {
-        String alarmer = zkService.getAlarm(clusterAlias);
-        List<AlarmInfo> targets = new ArrayList<>();
-        JSONArray alarmers = JSON.parseArray(alarmer);
-        for (Object object : alarmers) {
-            AlarmInfo alarm = new AlarmInfo();
-            JSONObject alarmSerialize = (JSONObject) object;
-            alarm.setGroup(alarmSerialize.getString("group"));
-            alarm.setTopics(alarmSerialize.getString("topic"));
-            alarm.setLag(alarmSerialize.getLong("lag"));
-            alarm.setOwners(alarmSerialize.getString("owner"));
-            targets.add(alarm);
-        }
-        StringBuilder builder = new StringBuilder();
-        targets.forEach(target -> builder.append("\nalarm info:[ " + target.toString() + " ]\n"));
-        LOG.info("alarm info {}", builder.toString());
-        return targets;
-    }
-
-    private void alert(String clusterAlias, List<OffsetsLiteInfo> offsetLites) {
-        boolean enableAlarm = SystemConfigUtils.getBooleanProperty("kafka.eagle.mail.enable");
-        if (enableAlarm) {
-            List<AlarmInfo> alarmers = alarmConfigure(clusterAlias);
-            for (AlarmInfo alarm : alarmers) {
-                for (OffsetsLiteInfo offset : offsetLites) {
-                    //判断
-                    LOG.info("=======> 判断是否发送告警 to alert offset info ... \n lag:{}", offset.getLag() - alarm.getLag());
-                    if (offset.getGroup().equals(alarm.getGroup()) && offset.getTopic().equals(alarm.getTopics()) && offset.getLag() > alarm.getLag()) {
-                        try {
-                            LOG.info("=======> begin to send email ");
-                            MailProvider provider = new MailFactory();
-                            String subject = "Kafka Eagle Consumer Alert";
-                            String address = alarm.getOwners();
-
-                            StringBuilder content = new StringBuilder();
-
-                            content.append("Dear All:<br/> <strong>中台kafka事件消费组消费事件出现堆积:</strong><br/>");
-                            content.append("<strong>消费组: </strong>").append(alarm.getGroup())
-                                    .append("<br/><strong>消息topic: </strong>").append(alarm.getTopics()).append("<br/>出现堆积，堆积消息量已经达到: ").append(offset.getLag())
-                                    .append("<br/>");
-                            content.append("<br/><br/><br/><span style='color:red;'><strong>请及时检查事件是否积压!!!</strong></span><br/>");
-
-                            MailMsg msg = new MailMsg("Kafka事件监控Offset告警!!!", content.toString(), MailMsgType.multi);
-
-
-                            String dMsg = "事件堆积监控报警," +
-                                    "\n消费组: " + alarm.getGroup() +
-                                    "\n订阅Topic: " + alarm.getTopics() +
-                                    "\n消息出现堆积,消息量已经达到" + offset.getLag() +
-                                    "\n\n请安排相关人员查看错误原因并及时处理。确保系统正常运行！\n";
-
-                            DispatchMail.sendDingDing(dMsg);
-//                            MailUtils.sendEmail(address, msg);
-                        } catch (Exception ex) {
-                            LOG.error("Topic[" + alarm.getTopics() + "] Send alarm mail has error,msg is " + ex.getMessage(), ex);
-                        }
-                    }
-                }
-            }
-        }
-    }
+    @Autowired
+    private CounterDao counterDao;
 
     /**
      * Get kafka brokers.
@@ -194,14 +123,14 @@ public class OffsetsQuartz {
      * Perform offset statistical tasks on time.
      */
     private void execute(String clusterAlias) {
-        LOG.info("======> start to execute offset quartz");
+        logger.info("======> start to execute counter quartz");
         try {
             List<String> hosts = getBrokers(clusterAlias);
             List<OffsetsLiteInfo> offsetLites = new ArrayList<>();
             String formatter = SystemConfigUtils.getProperty("kafka.eagle.offset.storage");
             Map<String, List<String>> consumers = null;
             if ("kafka".equals(formatter)) {
-                Map<String, List<String>> consumerGroupMap = new HashMap<String, List<String>>();
+                Map<String, List<String>> consumerGroupMap = new HashMap<>();
                 try {
                     JSONArray consumerGroups = JSON.parseArray(kafkaService.getKafkaConsumer(clusterAlias));
                     for (Object object : consumerGroups) {
@@ -215,11 +144,12 @@ public class OffsetsQuartz {
                     }
                     consumers = consumerGroupMap;
                 } catch (Exception e) {
-                    LOG.error("Get consumer info from [kafkaService.getKafkaConsumer] has error,msg is " + e.getMessage(), e);
+                    logger.error("Get consumer info from [kafkaService.getKafkaConsumer] has error,msg is " + e.getMessage(), e);
                 }
             } else {
                 consumers = kafkaService.getConsumers(clusterAlias);
             }
+
             String statsPerDate = getStatsPerDate();
             for (Entry<String, List<String>> entry : consumers.entrySet()) {
                 String group = entry.getKey();
@@ -228,11 +158,9 @@ public class OffsetsQuartz {
                     for (String partitionStr : kafkaService.findTopicPartition(clusterAlias, topic)) {
                         int partition = Integer.parseInt(partitionStr);
                         long logSize = 0L;
-                        if (SystemConfigUtils.getBooleanProperty("kafka.eagle.sasl.enable")) {
-                            logSize = kafkaService.getKafkaLogSize(clusterAlias, topic, partition);
-                        } else {
-                            logSize = kafkaService.getLogSize(hosts, topic, partition);
-                        }
+
+                        logSize = kafkaService.getLogSize(hosts, topic, partition);
+
                         OffsetZkInfo offsetZk;
                         if ("kafka".equals(formatter)) {
                             StringBuilder bootstrapServers = new StringBuilder();
@@ -259,54 +187,44 @@ public class OffsetsQuartz {
                     offsetLites.add(offsetSQLite);
                 }
             }
-            // Plan ASSS: Storage into zookeeper.
-//            zkService.insert(clusterAlias, offsetLites);
-
-            // Plan B: Storage single file.
-            // keService.write(clusterAlias, offsetLites.toString());
-            StringBuilder logBuilder = new StringBuilder();
-            offsetLites.forEach(lite -> logBuilder.append("\nINFO:[" + lite.toString() + "],\n"));
-            LOG.info("offsetLites info:{} ", logBuilder.toString());
-            alert(clusterAlias, offsetLites);
-//            alertBroker(clusterAlias);
+            counter(offsetLites);
 
 
         } catch (Exception ex) {
-            LOG.error("Quartz statistics offset has error,msg is " + ex.getMessage(), ex);
+            logger.error("Quartz statistics offset has error,msg is " + ex.getMessage(), ex);
         }
-        LOG.info("======> end to execute offset quartz");
+        logger.info("======> end to execute offset quartz");
     }
 
-    private void alertBroker(String clusterAlias) {
-        String brokers = kafkaService.getAllBrokersInfo(clusterAlias);
-        JSONArray kafkaBrokers = JSON.parseArray(brokers);
-        for (Object object : kafkaBrokers) {
-            JSONObject kafkaBroker = (JSONObject) object;
-            String host = kafkaBroker.getString("host");
-            int port = kafkaBroker.getInteger("port");
-            boolean status = NetUtils.telnet(host, port);
-            if (!status) {
-                try {
-                    MailProvider provider = new MailFactory();
-                    String subject = "Kafka Eagle On-Site Inspection Alert";
-//                    String content = "Thread Service [" + host + ":" + port + "] has crashed,please check it.";
-                    StringBuilder content = new StringBuilder();
 
-                    content.append("Dear All:<br/> <strong>kafka broker 告警:</strong><br/>");
-                    content.append("<strong>kafka broker host: " + host + ",port: " + port + "  crashed了，请及时检查</strong>");
+    private void counter(List<OffsetsLiteInfo> offsetLites) {
+        String nowDate = LocalDate.now(ZoneId.of("Asia/Shanghai")).toString();
 
-                    MailMsg msg = new MailMsg("kafka broker 告警!!!", content.toString(), MailMsgType.multi);
+        offsetLites.forEach(offset -> {
+            HashMap<String, String> params = new HashMap<>();
+            params.put("consumerName", offset.getGroup());
+            params.put("logTime", nowDate);
+            List<Counter> groupCounters = counterDao.findByGroupAndTime(params);
 
-//                            provider.create().send(subject, address, content, "");
-
-                    LOG.info("send to address:{},info:{}", "", msg.toString());
-                    MailUtils.sendEmail("", msg);
-
-//                    provider.create().send(subject, address, content, "");
-                } catch (Exception ex) {
-                    LOG.error("Alertor[" + "" + "] Send alarm mail has error,msg is " + ex.getMessage(), ex);
-                }
+            if (groupCounters.size() > 0) {
+                counterDao.insertCounter(new Counter(offset.getGroup(), offset.getTopic(), groupCounters.get(0).getNowLogSize(), offset.getLogSize(), nowDate));
+            } else {
+                counterDao.insertCounter(new Counter(offset.getGroup(), offset.getTopic(), offset.getLogSize(), offset.getLogSize(), nowDate));
             }
-        }
+        });
+
+        StringBuilder builder = new StringBuilder();
+
+        List<Counter> counters = counterDao.findByLogTime(nowDate);
+
+
+        counters.forEach(v -> builder.append("\n编号:").append(v.getConsumerName())
+                .append("消费组:").append(v.getConsumerName())
+                .append("Topic:").append(v.getTopic())
+                .append("之前LogSize:").append(v.getPreLogSize())
+                .append("现在LogSize:").append(v.getNowLogSize())
+                .append("时间:").append(v.getLogTime()));
+
+        DispatchMail.sendDingDing(builder.toString());
     }
 }

@@ -1,0 +1,14 @@
+version: '2'
+services:
+  idGenService:
+   container_name: kafkaEagle
+   image: kafka-eagle:0812
+   environment:
+     - TZ=CST-8
+     - LANG=zh_CN.UTF-8
+   volumes:
+     - "./config/eagle.properties:/kafka-eagle/bin/system-config.properties"
+     - "./config/eagle.properties:/kafka-eagle/conf/system-config.properties"
+     - "./logs:/kafka-eagle/logs"
+   ports:
+     - "8048:8048"

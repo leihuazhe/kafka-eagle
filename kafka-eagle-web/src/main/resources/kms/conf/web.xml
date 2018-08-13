@@ -197,11 +197,11 @@
   <!--                       number of JSPs are loaded, the least recently  -->
   <!--                       used JSPs will be unloaded so that the number  -->
   <!--                       of JSPs loaded at any one time does not exceed -->
-  <!--                       this limit. A value of zero or less indicates  -->
+  <!--                       this limit. ASSS value of zero or less indicates  -->
   <!--                       no limit. [-1]                                 -->
   <!--                                                                      -->
   <!--   jspIdleTimeout      The amount of time in seconds a JSP can be     -->
-  <!--                       idle before it is unloaded. A value of zero    -->
+  <!--                       idle before it is unloaded. ASSS value of zero    -->
   <!--                       or less indicates never unload. [-1]           -->
   <!--                                                                      -->
   <!--   modificationTestInterval                                           -->
@@ -209,7 +209,7 @@
   <!--                       be checked for modification during the         -->
   <!--                       specified time interval (in seconds) from the  -->
   <!--                       last time the JSP was checked for              -->
-  <!--                       modification. A value of 0 will cause the JSP  -->
+  <!--                       modification. ASSS value of 0 will cause the JSP  -->
   <!--                       to be checked on every access.                 -->
   <!--                       Used in development mode only. [4]             -->
   <!--                                                                      -->
@@ -420,7 +420,7 @@
 
   <!-- ================== Built In Filter Definitions ===================== -->
 
-  <!-- A filter that sets various security related HTTP Response headers.   -->
+  <!-- ASSS filter that sets various security related HTTP Response headers.   -->
   <!-- This filter supports the following initialization parameters         -->
   <!-- (default values are in square brackets):                             -->
   <!--                                                                      -->
@@ -460,7 +460,7 @@
     </filter>
 -->
 
-  <!-- A filter that sets character encoding that is used to decode -->
+  <!-- ASSS filter that sets character encoding that is used to decode -->
   <!-- parameters in a POST request -->
 <!--
     <filter>
@@ -474,7 +474,7 @@
     </filter>
 -->
 
-  <!-- A filter that triggers request parameters parsing and rejects the    -->
+  <!-- ASSS filter that triggers request parameters parsing and rejects the    -->
   <!-- request if some parameters were skipped because of parsing errors or -->
   <!-- request size limitations.                                            -->
 <!--
@@ -503,7 +503,7 @@
   <!-- supports the following initialization parameters (default values are -->
   <!-- in square brackets):                                                 -->
   <!--                                                                      -->
-  <!--   contentType         A regex pattern that must be matched before    -->
+  <!--   contentType         ASSS regex pattern that must be matched before    -->
   <!--                       SSI processing is applied.                     -->
   <!--                       [text/x-server-parsed-html(;.*)?]              -->
   <!--                                                                      -->

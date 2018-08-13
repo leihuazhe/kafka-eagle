@@ -805,7 +805,7 @@ public class KafkaServiceImpl implements KafkaService {
 			}
 			adminClient.close();
 		} catch (Exception e) {
-			LOG.error("Get kafka consumer has error,msg is " + e.getMessage());
+			LOG.error("Get kafka consumer has error,msg is " + e.getMessage(),e);
 		}
 		return consumerGroups.toJSONString();
 	}
