@@ -31,14 +31,11 @@ import com.google.gson.Gson;
  * @author hz.lei
  * @since 2018年08月13日 下午3:15
  */
+
 /**
  * CREATE TABLE `ke_counter`(`id` integer primary key autoincrement,`consumer_name` varchar(64),`topic` varchar(64),`pre_log_size` bigint(20), `now_log_size` bigint(20),`log_time` varchar(20))
  */
 public class Counter {
-    /**
-     * id
-     */
-    private int id;
     /**
      * consumerName
      */
@@ -50,23 +47,26 @@ public class Counter {
     /**
      * preLogSize
      */
-    private long preLogSize;
-    /**
-     * nowLogSize
-     */
-    private long nowLogSize;
+    private long logSize;
     /**
      * logTime
      */
     private String logTime;
 
 
-    public int getId() {
-        return id;
+    public Counter(String consumerName, String topic, long logSize, String logTime) {
+        this.consumerName = consumerName;
+        this.topic = topic;
+        this.logSize = logSize;
+        this.logTime = logTime;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public Counter() {
+    }
+
+    @Override
+    public String toString() {
+        return new Gson().toJson(this);
     }
 
     public String getConsumerName() {
@@ -85,20 +85,12 @@ public class Counter {
         this.topic = topic;
     }
 
-    public long getPreLogSize() {
-        return preLogSize;
+    public long getLogSize() {
+        return logSize;
     }
 
-    public void setPreLogSize(long preLogSize) {
-        this.preLogSize = preLogSize;
-    }
-
-    public long getNowLogSize() {
-        return nowLogSize;
-    }
-
-    public void setNowLogSize(long nowLogSize) {
-        this.nowLogSize = nowLogSize;
+    public void setLogSize(long logSize) {
+        this.logSize = logSize;
     }
 
     public String getLogTime() {
@@ -107,21 +99,5 @@ public class Counter {
 
     public void setLogTime(String logTime) {
         this.logTime = logTime;
-    }
-
-    public Counter(String consumerName, String topic, long preLogSize, long nowLogSize, String logTime) {
-        this.consumerName = consumerName;
-        this.topic = topic;
-        this.preLogSize = preLogSize;
-        this.nowLogSize = nowLogSize;
-        this.logTime = logTime;
-    }
-
-    public Counter() {
-    }
-
-    @Override
-    public String toString() {
-        return new Gson().toJson(this);
     }
 }

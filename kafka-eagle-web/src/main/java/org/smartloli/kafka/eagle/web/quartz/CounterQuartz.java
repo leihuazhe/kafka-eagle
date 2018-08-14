@@ -40,6 +40,7 @@ import org.smartloli.kafka.eagle.core.factory.ZkFactory;
 import org.smartloli.kafka.eagle.core.factory.ZkService;
 import org.smartloli.kafka.eagle.web.dao.CounterDao;
 import org.smartloli.kafka.eagle.web.pojo.Counter;
+import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.text.SimpleDateFormat;
@@ -201,37 +202,49 @@ public class CounterQuartz {
 
     private void counter(List<OffsetsLiteInfo> offsetLites) {
         StringBuilder msgBuilder = new StringBuilder();
-        LocalDate now = LocalDate.now(ZoneId.of("Asia/Shanghai"));
+//        LocalDate now = LocalDate.now(ZoneId.of("Asia/Shanghai"));
         LocalDateTime dateTime = LocalDateTime.now(ZoneId.of("Asia/Shanghai"));
-        String nowDate = now.toString();
+//        String nowDate = now.toString();
+
         DateTimeFormatter df = DateTimeFormatter.ofPattern("YYYY-MM-dd HH:mm:ss");
         String formatDate = df.format(dateTime);
 
         offsetLites.forEach(offset -> {
-            HashMap<String, String> params = new HashMap<>();
-            params.put("consumerName", offset.getGroup());
-            params.put("logTime", nowDate);
+            Counter oldCounter = counterDao.findByConsumerGroup(offset.getGroup());
 
-            List<Counter> groupCounters = counterDao.findByGroupAndTime(params);
-
-            long preLogSize;
-            if (groupCounters.size() > 0) {
-                counterDao.insertCounter(new Counter(offset.getGroup(), offset.getTopic(), groupCounters.get(0).getNowLogSize(), offset.getLogSize(), nowDate));
-                preLogSize = groupCounters.get(0).getNowLogSize();
+            if (oldCounter != null) {
+                counterDao.updateLogSize(new Counter(offset.getGroup(), offset.getTopic(), offset.getLogSize(), formatDate));
             } else {
-                counterDao.insertCounter(new Counter(offset.getGroup(), offset.getTopic(), offset.getLogSize(), offset.getLogSize(), nowDate));
-                preLogSize = offset.getLogSize();
+                counterDao.insertCounter(new Counter(offset.getGroup(), offset.getTopic(), offset.getLogSize(), formatDate));
+            }
+            msgBuilder.append("\n消费组: ").append(offset.getGroup()).append(",订阅的Topic: ").append(offset.getTopic())
+                    .append("\n\n上一次统计记录:");
+            long oldSize;
+            if (oldCounter != null) {
+                oldSize = oldCounter.getLogSize();
+                msgBuilder.append("\n    时间: ").append(oldCounter.getLogTime())
+                        .append("\n    logSize: ").append(oldCounter.getLogSize()).append("\n");
+            } else {
+                oldSize = 0L;
+                msgBuilder.append("\n无");
             }
 
-            msgBuilder.append("\n时间: ").append(formatDate)
-                    .append(", 消费组: ").append(offset.getGroup())
-                    .append(", Topic: ").append(offset.getTopic())
-                    .append(", 之前Size: ").append(preLogSize)
-                    .append(", 现在Size: ").append(offset.getLogSize())
-                    .append(", 消息量:").append(offset.getLogSize() - preLogSize)
-                    .append("\n");
+            msgBuilder.append("\n当前统计记录:")
+                    .append("\n    时间: ").append(formatDate)
+                    .append("\n    logSize: ").append(offset.getLogSize()).append("\n");
+
+            long size = offset.getLogSize() - oldSize;
+
+            msgBuilder.append("\n统计消费消息量: ").append(size).append(",当前Lag: ").append(offset.getLag());
+            msgBuilder.append("\n\n");
         });
-//        List<Counter> counters = counterDao.findByLogTime(nowDate);
-        DispatchMail.sendDingDing(msgBuilder.toString());
+
+        if (offsetLites.size() > 0) {
+            msgBuilder.append("\n");
+            DispatchMail.sendDingDing(msgBuilder.toString());
+        } else {
+            logger.info("no consumer group to be send to DD!!!");
+        }
+
     }
 }

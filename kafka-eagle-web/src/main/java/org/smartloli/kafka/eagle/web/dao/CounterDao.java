@@ -33,12 +33,17 @@ import java.util.Map;
  */
 public interface CounterDao {
 
-    List<Counter> findByLogTime(String logTime);
+    /**
+     * 根据 consumer_group 查找
+     *
+     * @param consumerName
+     * @return
+     */
+    Counter findByConsumerGroup(String consumerName);
 
-    List<Counter> findByGroupAndTime(HashMap<String,String> paramMap);
 
     int insertCounter(Counter counter);
 
-
+    int updateLogSize(Counter counter);
 
 }

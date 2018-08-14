@@ -4,35 +4,28 @@
 
     <resultMap type="org.smartloli.kafka.eagle.web.pojo.Counter"
                id="counter">
-        <result property="id" column="id"/>
         <result property="consumerName" column="consumer_name"/>
         <result property="topic" column="topic"/>
-        <result property="preLogSize" column="pre_log_size"/>
-        <result property="nowLogSize" column="now_log_size"/>
+        <result property="logSize" column="log_size"/>
         <result property="logTime" column="log_time"/>
     </resultMap>
 
-    <select id="findByLogTime" parameterType="string"
+
+    <select id="findByConsumerGroup" parameterType="string"
             resultMap="counter">
-		select * from ke_counter where log_time = #{logTime}
+		SELECT * FROM ke_counter WHERE consumer_name = #{consumerName}
 	</select>
 
-    <select id="findByGroupAndTime" parameterType="HashMap"
-            resultMap="counter">
-		select * from ke_counter where consumer_name = #{consumerName} AND log_time =  #{logTime} order by id desc
-	</select>
+    <update id="updateLogSize" parameterType="org.smartloli.kafka.eagle.web.pojo.Counter">
+        update ke_counter set log_size = #{logSize},log_time = #{logTime} where consumer_name = #{consumerName}
+    </update>
 
 
     <insert id="insertCounter" parameterType="org.smartloli.kafka.eagle.web.pojo.Counter">
-		insert into
-		ke_counter(consumer_name,topic,pre_log_size,now_log_size,log_time)
-		values(#{consumerName},#{topic},#{preLogSize},#{nowLogSize},#{logTime})
+		INSERT INTO
+		ke_counter(consumer_name,topic,log_size,log_time)
+		VALUES(#{consumerName},#{topic},#{logSize},#{logTime})
 	</insert>
-
-    <select id="findByLogTimeGroup" parameterType="string"
-            resultMap="counter">
-		select * from ke_counter where log_time = #{logTime} group by consumer_name order by
-	</select>
 
 
 </mapper>

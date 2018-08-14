@@ -2,7 +2,7 @@ version: '2'
 services:
   idGenService:
    container_name: kafkaEagle
-   image: kafka-eagle:0812
+   image: docker.today36524.com.cn:5000/basic/kafka-eagle:2.0.4
    environment:
      - TZ=CST-8
      - LANG=zh_CN.UTF-8

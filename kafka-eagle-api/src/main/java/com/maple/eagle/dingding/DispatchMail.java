@@ -35,9 +35,8 @@ public class DispatchMail {
         Set<String> sendPeoples = new HashSet<>(Arrays.asList(sendDD.split(",")));
 
         StringBuilder builder = new StringBuilder();
-        builder.append("Dear ");
-        sendPeoples.forEach(p -> builder.append(p + " "));
-        builder.append(":\n").append(context);
+        builder.append("Dear All:");
+        builder.append(context);
 
         String _response = HttpUtils.doPostJson(DD_TOKEN, buildSendDDMap(sendPeoples, builder.toString()), "UTF-8");
         logger.info("to DD response: ", _response);

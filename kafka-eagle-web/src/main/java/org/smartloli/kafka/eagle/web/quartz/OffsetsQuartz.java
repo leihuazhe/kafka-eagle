@@ -120,14 +120,13 @@ public class OffsetsQuartz {
                             MailMsg msg = new MailMsg("Kafka事件监控Offset告警!!!", content.toString(), MailMsgType.multi);
 
 
-                            String dMsg = "事件堆积监控报警," +
+                            String dMsg = "\n事件堆积监控报警," +
                                     "\n消费组: " + alarm.getGroup() +
                                     "\n订阅Topic: " + alarm.getTopics() +
                                     "\n消息出现堆积,消息量已经达到" + offset.getLag() +
                                     "\n\n请安排相关人员查看错误原因并及时处理。确保系统正常运行！\n";
 
                             DispatchMail.sendDingDing(dMsg);
-//                            MailUtils.sendEmail(address, msg);
                         } catch (Exception ex) {
                             LOG.error("Topic[" + alarm.getTopics() + "] Send alarm mail has error,msg is " + ex.getMessage(), ex);
                         }
