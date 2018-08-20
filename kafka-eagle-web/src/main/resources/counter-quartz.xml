@@ -21,7 +21,8 @@
             <!--<value>0 0/5 * * * ?</value>-->
             <!--<value>0/10 * * * * ?</value>-->
             <!--<value>0 0/1 * * * ?</value>-->
-            <value>0 0 9/4 * * ?</value>
+            <!--<value>0 0 9/4 * * ?</value>-->
+            <value>0 0 9 * * ?</value>
         </property>
     </bean>
     <!-- Quartz scheduling factory scheduling plant can only have one, multiple

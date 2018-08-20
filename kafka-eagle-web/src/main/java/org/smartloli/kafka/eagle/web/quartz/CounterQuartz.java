@@ -204,13 +204,12 @@ public class CounterQuartz {
         StringBuilder msgBuilder = new StringBuilder();
 //        LocalDate now = LocalDate.now(ZoneId.of("Asia/Shanghai"));
         LocalDateTime dateTime = LocalDateTime.now(ZoneId.of("Asia/Shanghai"));
-//        String nowDate = now.toString();
 
         DateTimeFormatter df = DateTimeFormatter.ofPattern("YYYY-MM-dd HH:mm:ss");
         String formatDate = df.format(dateTime);
 
         offsetLites.forEach(offset -> {
-            Counter oldCounter = counterDao.findByConsumerGroup(offset.getGroup());
+            Counter oldCounter = counterDao.findByConsumerGroup(offset.getGroup(), offset.getTopic());
 
             if (oldCounter != null) {
                 counterDao.updateLogSize(new Counter(offset.getGroup(), offset.getTopic(), offset.getLogSize(), formatDate));

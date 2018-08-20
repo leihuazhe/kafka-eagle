@@ -17,6 +17,7 @@
  */
 package org.smartloli.kafka.eagle.web.dao;
 
+import org.apache.ibatis.annotations.Param;
 import org.smartloli.kafka.eagle.web.pojo.Counter;
 import org.smartloli.kafka.eagle.web.pojo.Signiner;
 
@@ -36,10 +37,11 @@ public interface CounterDao {
     /**
      * 根据 consumer_group 查找
      *
-     * @param consumerName
+     * @param consumerName 消费组名
+     * @param topic        订阅主题名
      * @return
      */
-    Counter findByConsumerGroup(String consumerName);
+    Counter findByConsumerGroup(@Param("consumerName") String consumerName, @Param("topic") String topic);
 
 
     int insertCounter(Counter counter);

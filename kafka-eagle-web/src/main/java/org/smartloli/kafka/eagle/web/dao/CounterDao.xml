@@ -13,7 +13,7 @@
 
     <select id="findByConsumerGroup" parameterType="string"
             resultMap="counter">
-		SELECT * FROM ke_counter WHERE consumer_name = #{consumerName}
+		SELECT * FROM ke_counter WHERE consumer_name = #{consumerName} and topic = #{topic}
 	</select>
 
     <update id="updateLogSize" parameterType="org.smartloli.kafka.eagle.web.pojo.Counter">
