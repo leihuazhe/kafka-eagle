@@ -18,11 +18,12 @@
         <property name="jobDetail" ref="counterDetail"/>
         <property name="cronExpression">
             <!-- Perform task scheduling per 5min. -->
-            <!--<value>0 0/5 * * * ?</value>-->
+            <!--<value>0 0/1 * * * ?</value>-->
             <!--<value>0/10 * * * * ?</value>-->
             <!--<value>0 0/1 * * * ?</value>-->
             <!--<value>0 0 9/4 * * ?</value>-->
             <value>0 0 9 * * ?</value>
+            <!--<value>0/30 0 * * * ?</value>-->
         </property>
     </bean>
     <!-- Quartz scheduling factory scheduling plant can only have one, multiple
