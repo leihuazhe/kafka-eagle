@@ -4,17 +4,121 @@
 [![Hex.pm](https://img.shields.io/hexpm/l/plug.svg)](https://github.com/smartloli/kafka-eagle/blob/master/LICENSE)
 
 # docker 镜像打法
-- 1.第一步，拉取代码:
-https://github.com/leihuazhe/kafka-eagle
+- 1.第一步，拉取代码: `https://github.com/leihuazhe/kafka-eagle`
+- 2.`ke(root)` 目录 `mvn clean package` 
+- 3.解压 `web/target` 下面的 `kafka-eagle-web-1.2.3-bin.tar.gz`，解压得到 `kafka-eagle-web-1.2.3`
+- 4.将 `system-config.properties` 加入到 解压出来的 `kafka-eagle-web-1.2.3/bin` 下面
+- 5.在 `kafka-eagle-web-1.2.3/kms` 文件夹下面创建 `logs` 文件夹
+- 6.将 `web` 工程目录下的 `ke.db` 加入到 `kafka-eagle-web-1.2.3/db` 下面
+- 7.Copy `kafka-eagle-web-1.2.3` 到 `kafka-eagle-web/docker` 下
+- 8.在此路径下执行打镜像 `docker build -t docker.today36524.com.cn:5000/basic/kafka-eagle:1.2.3 .`
 
-- 2.ke(root) 目录 mvn clean package 
+# 使用 docker-compose 形式启动 kafka-eagle
+> 基本 docker-compose 配置文件如下:
 
-- 3.解压 web/target下面的 kafka-eagle-web-1.2.3-bin.tar.gz
-- 4.将system-config.properties 加入到 解压出来的 kafka-eagle-web/bin下面
-- 5.在kms文件夹下面创建logs文件夹
-- 6.将 ke.db 加入到 kafka-eagle-web/db 下面
-- 7.打镜像:
-docker build -t xxx-kafka-eagle:1.2.3 .
+```yml
+version: '2'
+services:
+  kafkaEagle:
+   container_name: kafkaEagle
+   image: docker.today36524.com.cn:5000/basic/kafka-eagle:1.2.3
+   environment:
+     - TZ=CST-8
+     - LANG=zh_CN.UTF-8
+   volumes:
+     - "./config/eagle.properties:/kafka-eagle/bin/system-config.properties"
+     - "./config/eagle.properties:/kafka-eagle/conf/system-config.properties"
+     - "./logs:/kafka-eagle/logs"
+   ports:
+     - "8048:8048"
+```
+我们需要配置的 `volumes`
+
+- 需要在宿主机配置好 `eagle.properties`,并映射到容器内
+- 需要定义 `logs` 存放地址
+
+## 常见 eagle.properties 配置
+
+```properties
+######################################
+# kafka zk 集群，默认即可
+######################################
+kafka.eagle.zk.cluster.alias=cluster
+
+# zk 集群地址 
+cluster.zk.list=127.0.0.1:2181
+
+#cluster2.zk.list=xdn10:2181,xdn11:2181,xdn12:2181
+
+######################################
+# zk client thread limit
+######################################
+kafka.zk.limit.size=25
+
+######################################
+# kafka eagle 端口号
+######################################
+kafka.eagle.webui.port=8048
+
+######################################
+# kafka offset storage
+######################################
+kafka.eagle.offset.storage=kafka
+
+######################################
+# alarm email configure
+######################################
+kafka.eagle.mail.enable=true
+kafka.eagle.mail.sa=alert_sa
+kafka.eagle.mail.username=
+kafka.eagle.mail.password=
+kafka.eagle.mail.server.host=
+kafka.eagle.mail.server.port=
+
+######################################
+# delete kafka topic token
+######################################
+kafka.eagle.topic.token=keadmin
+
+######################################
+# kafka sasl authenticate
+######################################
+kafka.eagle.sasl.enable=false
+kafka.eagle.sasl.protocol=SASL_PLAINTEXT
+kafka.eagle.sasl.mechanism=PLAIN
+
+######################################
+# kafka jdbc driver address
+######################################
+kafka.eagle.driver=org.sqlite.JDBC
+kafka.eagle.url=jdbc:sqlite:/kafka-eagle/db/ke.db
+kafka.eagle.username=root
+kafka.eagle.password=smartloli
+
+
+#----------------邮箱发送配置----------
+#smtp服务器
+mail.smtp.host=
+#身份验证
+mail.smtp.auth=true
+#发送者的邮箱用户名
+mail.sender.username=
+mail.from.name=
+#发送者的邮箱密码
+mail.sender.password=
+
+mail.charset=utf-8
+
+#mail.to.email=zxwang@today36524.com.cn,yszhang@today36524.com.cn,pzhu-2@today36524.com.cn,yjhu@today36524.com.cn,hzlei@today36524.com.cn,qyang@today36524.com.cn,bbliang@today36524.com.cn,fwu@today36524.com.cn,zhihuic@today36524.com.cn,fzhang@today36524.com.cn,dkfang@today36524.com.cn,jyli@today36524.com.cn,zjhe@today36524.com.cn,zhengsun@today36524.com.cn,hsliang@today36524.com.cn,xiay@today36524.com.cn,luoji@today36524.com.cn
+#mail.to.email=yszhang@today36524.com.cn,hzlei@today36524.com.cn,qyang@today36524.com.cn
+mail.to.email=""
+
+
+# 钉钉告警的配置信息
+dd.token=
+mail.to.dd=
+```
+
 
 
 # Kafka Eagle
