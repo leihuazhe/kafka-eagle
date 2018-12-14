@@ -109,8 +109,6 @@ mail.sender.password=
 
 mail.charset=utf-8
 
-#mail.to.email=zxwang@today36524.com.cn,yszhang@today36524.com.cn,pzhu-2@today36524.com.cn,yjhu@today36524.com.cn,hzlei@today36524.com.cn,qyang@today36524.com.cn,bbliang@today36524.com.cn,fwu@today36524.com.cn,zhihuic@today36524.com.cn,fzhang@today36524.com.cn,dkfang@today36524.com.cn,jyli@today36524.com.cn,zjhe@today36524.com.cn,zhengsun@today36524.com.cn,hsliang@today36524.com.cn,xiay@today36524.com.cn,luoji@today36524.com.cn
-#mail.to.email=yszhang@today36524.com.cn,hzlei@today36524.com.cn,qyang@today36524.com.cn
 mail.to.email=""
 
 
